@@ -1,0 +1,784 @@
+[[exercises]]
+name = "intro1"
+dir = "00_intro"
+hint = """
+Welcome to OCalf! Your first task is to fix the syntax error.
+In OCaml, strings are enclosed in double quotes.
+"""
+
+[[exercises]]
+name = "intro2"
+dir = "00_intro"
+hint = """
+OCaml has two types of comments:
+- (* Regular comments *)
+- (** Documentation comments **)
+Comments can span multiple lines.
+"""
+
+[[exercises]]
+name = "variables1"
+dir = "01_variables"
+hint = """
+In OCaml, you bind values to names using `let`:
+  let x = 5
+The value on the right is bound to the name on the left.
+"""
+
+[[exercises]]
+name = "variables2"
+dir = "01_variables"
+hint = """
+You can add type annotations to let bindings:
+  let x : int = 5
+  let name : string = "Alice"
+The type comes after a colon, before the equals sign.
+"""
+
+[[exercises]]
+name = "variables3"
+dir = "01_variables"
+hint = """
+OCaml allows shadowing - you can rebind a name to a new value:
+  let x = 5
+  let x = x + 1  (* x is now 6 *)
+This creates a new binding, it doesn't mutate the original.
+"""
+
+[[exercises]]
+name = "variables4"
+dir = "01_variables"
+hint = """
+The `let ... in` expression creates a local scope:
+  let x = 5 in
+  let y = x + 1 in
+  x + y
+The bindings are only visible within the `in` expression.
+"""
+
+[[exercises]]
+name = "functions1"
+dir = "02_functions"
+hint = """
+Functions are defined using `let`:
+  let add x y = x + y
+Parameters come after the function name, separated by spaces.
+"""
+
+[[exercises]]
+name = "functions2"
+dir = "02_functions"
+hint = """
+Functions can take multiple parameters:
+  let greet name age = ...
+Call them with: greet "Alice" 30
+"""
+
+[[exercises]]
+name = "functions3"
+dir = "02_functions"
+hint = """
+Labeled arguments use ~ prefix:
+  let greet ~name ~age = ...
+Call with: greet ~name:"Alice" ~age:30
+Or with punning: let name = "Alice" in greet ~name ~age:30
+"""
+
+[[exercises]]
+name = "functions4"
+dir = "02_functions"
+hint = """
+Optional arguments use ? prefix and provide defaults:
+  let greet ?(greeting="Hello") name = greeting ^ ", " ^ name
+Call with: greet "Alice"  (* uses default *)
+Or: greet ~greeting:"Hi" "Bob"
+"""
+
+[[exercises]]
+name = "functions5"
+dir = "02_functions"
+hint = """
+Partial application: apply some arguments to get a new function:
+  let add x y = x + y
+  let add5 = add 5  (* add5 is a function that adds 5 *)
+  add5 3  (* returns 8 *)
+"""
+
+[[exercises]]
+name = "if1"
+dir = "03_if"
+hint = """
+The basic if/then/else syntax:
+  if condition then value1 else value2
+Both branches must have the same type!
+"""
+
+[[exercises]]
+name = "if2"
+dir = "03_if"
+hint = """
+You can nest conditionals with `else if`:
+  if x < 0 then "negative"
+  else if x = 0 then "zero"
+  else "positive"
+"""
+
+[[exercises]]
+name = "if3"
+dir = "03_if"
+hint = """
+In OCaml, `if` is an expression that returns a value:
+  let result = if x > 0 then x * 2 else 0
+The value of the if expression is the value of the chosen branch.
+"""
+
+[[exercises]]
+name = "primitive_types1"
+dir = "04_primitive_types"
+hint = """
+OCaml's primitive types:
+- int: 42, -5
+- float: 3.14, 2.0 (note: use 2.0, not 2.)
+- bool: true, false
+- char: 'a', 'Z', '\\n'
+"""
+
+[[exercises]]
+name = "primitive_types2"
+dir = "04_primitive_types"
+hint = """
+String operations:
+- Concatenation: "Hello" ^ " World"
+- Length: String.length "abc"
+- Get char: String.get "abc" 0  (* returns 'a' *)
+- Substring: String.sub "hello" 1 3  (* returns "ell" *)
+"""
+
+[[exercises]]
+name = "primitive_types3"
+dir = "04_primitive_types"
+hint = """
+Type conversion functions:
+- int_of_float 3.14  (* returns 3 *)
+- float_of_int 5  (* returns 5.0 *)
+- string_of_int 42  (* returns "42" *)
+- int_of_string "42"  (* returns 42 *)
+- Char.code 'a'  (* returns 97 *)
+- Char.chr 97  (* returns 'a' *)
+"""
+
+[[exercises]]
+name = "primitive_types4"
+dir = "04_primitive_types"
+hint = """
+The unit type () represents "no meaningful value":
+- Used for side effects: print_endline "hi" returns ()
+- Unit type functions: let do_nothing () = ()
+- Similar to void in other languages
+"""
+
+[[exercises]]
+name = "tuples1"
+dir = "05_tuples"
+hint = """
+Tuples group multiple values:
+  let pair = (1, "hello")
+  let triple = (1, 2.0, true)
+Tuples can contain values of different types.
+"""
+
+[[exercises]]
+name = "tuples2"
+dir = "05_tuples"
+hint = """
+Destructure tuples with pattern matching:
+  let (x, y) = (1, 2)
+  let (a, b, c) = triple
+For pairs, you can also use fst and snd:
+  fst (1, 2)  (* returns 1 *)
+  snd (1, 2)  (* returns 2 *)
+"""
+
+[[exercises]]
+name = "tuples3"
+dir = "05_tuples"
+hint = """
+Functions can return tuples to return multiple values:
+  let divide_with_remainder a b = (a / b, a mod b)
+  let (quotient, remainder) = divide_with_remainder 10 3
+"""
+
+[[exercises]]
+name = "records1"
+dir = "06_records"
+hint = """
+Define a record type first:
+  type person = { name : string; age : int }
+Then create values:
+  let alice = { name = "Alice"; age = 30 }
+"""
+
+[[exercises]]
+name = "records2"
+dir = "06_records"
+hint = """
+Access fields with dot notation:
+  alice.name  (* "Alice" *)
+Create updated copies with { ... with ... }:
+  let older_alice = { alice with age = 31 }
+"""
+
+[[exercises]]
+name = "records3"
+dir = "06_records"
+hint = """
+Mutable record fields use the `mutable` keyword:
+  type counter = { mutable count : int }
+Update with <-:
+  let c = { count = 0 }
+  c.count <- c.count + 1
+"""
+
+[[exercises]]
+name = "records4"
+dir = "06_records"
+hint = """
+Records can be nested:
+  type address = { street : string; city : string }
+  type person = { name : string; address : address }
+Access nested fields: person.address.city
+"""
+
+[[exercises]]
+name = "variants1"
+dir = "07_variants"
+hint = """
+Simple variants (enums) are defined with |:
+  type color = Red | Green | Blue
+Constructors must start with uppercase.
+"""
+
+[[exercises]]
+name = "variants2"
+dir = "07_variants"
+hint = """
+Variants can carry data:
+  type shape =
+    | Circle of float
+    | Rectangle of float * float
+Create values:
+  let c = Circle 5.0
+  let r = Rectangle (3.0, 4.0)
+"""
+
+[[exercises]]
+name = "variants3"
+dir = "07_variants"
+hint = """
+Variants can be recursive (for trees):
+  type tree =
+    | Leaf
+    | Node of int * tree * tree
+Create: Node (1, Leaf, Node (2, Leaf, Leaf))
+"""
+
+[[exercises]]
+name = "variants4"
+dir = "07_variants"
+hint = """
+Polymorphic variants use backtick prefix:
+  let color = `Red
+  let status = `Ok 42 | `Error "oops"
+They don't need predefined type declarations.
+"""
+
+[[exercises]]
+name = "pattern_matching1"
+dir = "08_pattern_matching"
+hint = """
+Match on variants:
+  match color with
+  | Red -> "red"
+  | Green -> "green"
+  | Blue -> "blue"
+"""
+
+[[exercises]]
+name = "pattern_matching2"
+dir = "08_pattern_matching"
+hint = """
+Match on tuples:
+  match pair with
+  | (0, 0) -> "origin"
+  | (x, 0) -> "on x-axis"
+  | (0, y) -> "on y-axis"
+  | (x, y) -> "elsewhere"
+"""
+
+[[exercises]]
+name = "pattern_matching3"
+dir = "08_pattern_matching"
+hint = """
+Guards add conditions with `when`:
+  match x with
+  | n when n < 0 -> "negative"
+  | n when n = 0 -> "zero"
+  | n -> "positive"
+"""
+
+[[exercises]]
+name = "pattern_matching4"
+dir = "08_pattern_matching"
+hint = """
+The `as` pattern binds a name to the whole matched value:
+  match list with
+  | ([] as empty) -> empty
+  | (head :: tail as whole) -> whole
+"""
+
+[[exercises]]
+name = "pattern_matching5"
+dir = "08_pattern_matching"
+hint = """
+OCaml warns about non-exhaustive matches!
+Use _ as a wildcard to match anything:
+  match x with
+  | Some y -> y
+  | None -> 0
+Or use _ for catch-all:
+  match x with
+  | 0 -> "zero"
+  | _ -> "non-zero"
+"""
+
+[[exercises]]
+name = "lists1"
+dir = "09_lists"
+hint = """
+Lists are created with []:
+  let numbers = [1; 2; 3]
+Note: use semicolons, not commas!
+The :: operator prepends: 0 :: [1; 2]  (* [0; 1; 2] *)
+"""
+
+[[exercises]]
+name = "lists2"
+dir = "09_lists"
+hint = """
+Pattern match on lists:
+  match list with
+  | [] -> "empty"
+  | [x] -> "one element"
+  | [x; y] -> "two elements"
+  | head :: tail -> "at least one"
+"""
+
+[[exercises]]
+name = "lists3"
+dir = "09_lists"
+hint = """
+List.map transforms each element:
+  List.map (fun x -> x * 2) [1; 2; 3]  (* [2; 4; 6] *)
+List.filter keeps matching elements:
+  List.filter (fun x -> x > 0) [-1; 2; -3; 4]  (* [2; 4] *)
+"""
+
+[[exercises]]
+name = "lists4"
+dir = "09_lists"
+hint = """
+List.fold_left accumulates from left:
+  List.fold_left (+) 0 [1; 2; 3]  (* 6 *)
+  List.fold_left (fun acc x -> x :: acc) [] [1; 2; 3]  (* [3; 2; 1] *)
+List.fold_right goes from right (less efficient).
+"""
+
+[[exercises]]
+name = "lists5"
+dir = "09_lists"
+hint = """
+Useful list patterns:
+  List.concat [[1; 2]; [3; 4]]  (* [1; 2; 3; 4] *)
+  List.flatten  (* same as concat *)
+  List.rev [1; 2; 3]  (* [3; 2; 1] *)
+  list1 @ list2  (* append lists *)
+"""
+
+[[exercises]]
+name = "options1"
+dir = "10_options"
+hint = """
+Option type represents optional values:
+  type 'a option = None | Some of 'a
+Use Some to wrap a value:
+  let x = Some 42
+  let nothing = None
+"""
+
+[[exercises]]
+name = "options2"
+dir = "10_options"
+hint = """
+Pattern match on options:
+  match opt with
+  | Some x -> "got " ^ string_of_int x
+  | None -> "nothing"
+"""
+
+[[exercises]]
+name = "options3"
+dir = "10_options"
+hint = """
+Option module functions:
+  Option.map (fun x -> x + 1) (Some 5)  (* Some 6 *)
+  Option.map (fun x -> x + 1) None  (* None *)
+  Option.bind (Some 5) (fun x -> Some (x + 1))  (* Some 6 *)
+"""
+
+[[exercises]]
+name = "options4"
+dir = "10_options"
+hint = """
+Chain optional operations with Option.bind:
+  let get_name id = ...  (* returns string option *)
+  let get_age name = ...  (* returns int option *)
+  Option.bind (get_name id) get_age  (* returns int option *)
+Or use let* with Option binding operators.
+"""
+
+[[exercises]]
+name = "results1"
+dir = "11_results"
+hint = """
+Result type for error handling:
+  type ('a, 'b) result = Ok of 'a | Error of 'b
+Use Ok for success:
+  Ok 42
+Use Error for failure:
+  Error "something went wrong"
+"""
+
+[[exercises]]
+name = "results2"
+dir = "11_results"
+hint = """
+Pattern match on results:
+  match result with
+  | Ok value -> "success: " ^ string_of_int value
+  | Error msg -> "error: " ^ msg
+"""
+
+[[exercises]]
+name = "results3"
+dir = "11_results"
+hint = """
+Result module functions:
+  Result.map (fun x -> x + 1) (Ok 5)  (* Ok 6 *)
+  Result.map (fun x -> x + 1) (Error "e")  (* Error "e" *)
+  Result.bind (Ok 5) (fun x -> Ok (x + 1))
+"""
+
+[[exercises]]
+name = "results4"
+dir = "11_results"
+hint = """
+Convert between Option and Result:
+  Option.to_result ~none:"missing" (Some 5)  (* Ok 5 *)
+  Option.to_result ~none:"missing" None  (* Error "missing" *)
+  Result.to_option (Ok 5)  (* Some 5 *)
+  Result.to_option (Error "e")  (* None *)
+"""
+
+[[exercises]]
+name = "modules1"
+dir = "12_modules"
+hint = """
+Define a module with `module`:
+  module MyModule = struct
+    let x = 5
+    let add a b = a + b
+  end
+Access with dot notation: MyModule.add 1 2
+"""
+
+[[exercises]]
+name = "modules2"
+dir = "12_modules"
+hint = """
+Module signatures define the interface:
+  module type S = sig
+    val x : int
+    val add : int -> int -> int
+  end
+Apply to a module:
+  module M : S = struct ... end
+"""
+
+[[exercises]]
+name = "modules3"
+dir = "12_modules"
+hint = """
+Abstract types hide implementation:
+  module type Stack = sig
+    type 'a t  (* abstract - users can't see implementation *)
+    val empty : 'a t
+    val push : 'a -> 'a t -> 'a t
+  end
+"""
+
+[[exercises]]
+name = "modules4"
+dir = "12_modules"
+hint = """
+`open` brings module contents into scope:
+  open List
+  map (fun x -> x + 1) [1; 2; 3]  (* instead of List.map *)
+`include` copies contents into current module:
+  include OtherModule
+"""
+
+[[exercises]]
+name = "modules5"
+dir = "12_modules"
+hint = """
+Modules can be nested:
+  module Outer = struct
+    module Inner = struct
+      let x = 5
+    end
+  end
+Access: Outer.Inner.x
+"""
+
+[[exercises]]
+name = "functors1"
+dir = "13_functors"
+hint = """
+Functors are functions from modules to modules:
+  module F (M : sig val x : int end) = struct
+    let y = M.x + 1
+  end
+"""
+
+[[exercises]]
+name = "functors2"
+dir = "13_functors"
+hint = """
+Apply a functor to create a module:
+  module M = struct let x = 5 end
+  module Result = F(M)  (* Result.y = 6 *)
+"""
+
+[[exercises]]
+name = "functors3"
+dir = "13_functors"
+hint = """
+Set and Map require comparison functions via functors:
+  module IntSet = Set.Make(Int)
+  let s = IntSet.of_list [1; 2; 3]
+  module StringMap = Map.Make(String)
+"""
+
+[[exercises]]
+name = "functors4"
+dir = "13_functors"
+hint = """
+First-class modules can be passed as values:
+  let m = (module M : S)  (* pack module as value *)
+  let module M = (val m : S) in ...  (* unpack *)
+"""
+
+[[exercises]]
+name = "higher_order1"
+dir = "14_higher_order"
+hint = """
+Functions can take other functions as arguments:
+  let apply_twice f x = f (f x)
+  apply_twice (fun x -> x + 1) 5  (* 7 *)
+"""
+
+[[exercises]]
+name = "higher_order2"
+dir = "14_higher_order"
+hint = """
+Functions can return other functions:
+  let make_adder n = fun x -> x + n
+  let add5 = make_adder 5
+  add5 10  (* 15 *)
+"""
+
+[[exercises]]
+name = "higher_order3"
+dir = "14_higher_order"
+hint = """
+Composition operators:
+- |> (pipe): x |> f is same as f x
+  5 |> add 1 |> mul 2  (* (5 + 1) * 2 = 12 *)
+- @@ (application): f @@ g @@ x is same as f (g x)
+  print_endline @@ string_of_int @@ 5 + 3
+"""
+
+[[exercises]]
+name = "higher_order4"
+dir = "14_higher_order"
+hint = """
+Anonymous functions with `fun`:
+  fun x -> x + 1
+  fun x y -> x + y
+  List.map (fun s -> String.length s) ["a"; "bb"; "ccc"]
+"""
+
+[[exercises]]
+name = "higher_order5"
+dir = "14_higher_order"
+hint = """
+Currying: multi-argument functions are really chained single-argument functions.
+  let add x y = x + y
+Is equivalent to:
+  let add = fun x -> fun y -> x + y
+So `add 5` returns a function waiting for y.
+"""
+
+[[exercises]]
+name = "recursion1"
+dir = "15_recursion"
+hint = """
+Use `rec` for recursive functions:
+  let rec factorial n =
+    if n <= 1 then 1
+    else n * factorial (n - 1)
+"""
+
+[[exercises]]
+name = "recursion2"
+dir = "15_recursion"
+hint = """
+Mutual recursion with `and`:
+  let rec is_even n =
+    if n = 0 then true else is_odd (n - 1)
+  and is_odd n =
+    if n = 0 then false else is_even (n - 1)
+"""
+
+[[exercises]]
+name = "recursion3"
+dir = "15_recursion"
+hint = """
+Tail recursion: the recursive call is the last operation.
+Non-tail (stack overflow risk):
+  let rec sum = function [] -> 0 | x :: xs -> x + sum xs
+Tail-recursive (efficient):
+  let sum lst =
+    let rec aux acc = function
+      | [] -> acc
+      | x :: xs -> aux (acc + x) xs
+    in aux 0 lst
+"""
+
+[[exercises]]
+name = "recursion4"
+dir = "15_recursion"
+hint = """
+Recursion on recursive data structures:
+  let rec tree_sum = function
+    | Leaf -> 0
+    | Node (v, left, right) -> v + tree_sum left + tree_sum right
+"""
+
+[[exercises]]
+name = "refs1"
+dir = "16_refs"
+hint = """
+Refs are mutable cells:
+  let r = ref 5  (* create ref with initial value 5 *)
+  !r  (* dereference: get the value, returns 5 *)
+"""
+
+[[exercises]]
+name = "refs2"
+dir = "16_refs"
+hint = """
+Update a ref with :=
+  let r = ref 5
+  r := 10  (* set value to 10 *)
+  !r  (* returns 10 *)
+"""
+
+[[exercises]]
+name = "refs3"
+dir = "16_refs"
+hint = """
+Use refs sparingly - prefer immutable values.
+Good uses for refs:
+- Caching/memoization
+- Counters for unique IDs
+- Implementing imperative algorithms
+"""
+
+[[exercises]]
+name = "exceptions1"
+dir = "17_exceptions"
+hint = """
+Raise built-in exceptions:
+  raise Not_found
+  raise (Invalid_argument "bad input")
+  raise (Failure "something failed")
+Or use failwith: failwith "error message"
+"""
+
+[[exercises]]
+name = "exceptions2"
+dir = "17_exceptions"
+hint = """
+Handle exceptions with try/with:
+  try
+    risky_operation ()
+  with
+  | Not_found -> "not found"
+  | Failure msg -> "failed: " ^ msg
+"""
+
+[[exercises]]
+name = "exceptions3"
+dir = "17_exceptions"
+hint = """
+Define custom exceptions:
+  exception My_error
+  exception Error_with_data of string * int
+Raise them:
+  raise My_error
+  raise (Error_with_data ("oops", 42))
+"""
+
+[[exercises]]
+name = "quiz1"
+dir = "quizzes"
+hint = """
+This quiz covers variables, functions, and conditionals.
+Review:
+- let bindings and type annotations
+- Function definitions and calls
+- if/then/else expressions
+"""
+
+[[exercises]]
+name = "quiz2"
+dir = "quizzes"
+hint = """
+This quiz covers data structures and pattern matching.
+Review:
+- Tuples, records, and variants
+- Lists and list operations
+- Pattern matching syntax and guards
+"""
+
+[[exercises]]
+name = "quiz3"
+dir = "quizzes"
+hint = """
+This quiz covers modules and higher-order programming.
+Review:
+- Module definitions and signatures
+- Functors
+- Higher-order functions and composition
+"""
