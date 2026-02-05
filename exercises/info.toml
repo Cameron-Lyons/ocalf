@@ -782,3 +782,145 @@ Review:
 - Functors
 - Higher-order functions and composition
 """
+
+[[exercises]]
+name = "arrays1"
+dir = "18_arrays"
+hint = """
+Arrays are mutable, fixed-size collections:
+  let arr = [| 1; 2; 3 |]  (* create array *)
+  arr.(0)  (* access element at index 0 *)
+  Array.length arr  (* get length *)
+"""
+
+[[exercises]]
+name = "arrays2"
+dir = "18_arrays"
+hint = """
+Arrays are mutable - update elements with <-:
+  let arr = [| 1; 2; 3 |]
+  arr.(0) <- 10  (* set first element to 10 *)
+"""
+
+[[exercises]]
+name = "arrays3"
+dir = "18_arrays"
+hint = """
+Array module functions:
+  Array.map (fun x -> x * 2) arr  (* map over array *)
+  Array.fold_left (+) 0 arr  (* fold array *)
+  Array.make 5 0  (* create array of 5 zeros *)
+  Array.init 5 (fun i -> i)  (* create [| 0; 1; 2; 3; 4 |] *)
+"""
+
+[[exercises]]
+name = "imperative1"
+dir = "19_imperative"
+hint = """
+For loops iterate over a range:
+  for i = 0 to 4 do
+    (* body using i *)
+  done
+Use `downto` for descending:
+  for i = 4 downto 0 do ... done
+"""
+
+[[exercises]]
+name = "imperative2"
+dir = "19_imperative"
+hint = """
+While loops repeat until condition is false:
+  while !counter < 10 do
+    counter := !counter + 1
+  done
+The condition is checked before each iteration.
+"""
+
+[[exercises]]
+name = "imperative3"
+dir = "19_imperative"
+hint = """
+The ; operator sequences expressions:
+  expr1; expr2; expr3  (* evaluates all, returns expr3 *)
+Use begin...end to group sequences:
+  if cond then begin
+    do_something ();
+    do_another ()
+  end
+"""
+
+[[exercises]]
+name = "let_operators1"
+dir = "20_let_operators"
+hint = """
+Define let* for monadic binding:
+  let ( let* ) = Option.bind
+  let return x = Some x
+
+Then use it:
+  let* x = some_option in
+  let* y = another_option in
+  return (x + y)
+"""
+
+[[exercises]]
+name = "let_operators2"
+dir = "20_let_operators"
+hint = """
+let* works with any monad (Option, Result, etc.):
+  let ( let* ) = Result.bind
+  let return x = Ok x
+
+Chain operations that might fail:
+  let* parsed = parse s in
+  let* validated = validate parsed in
+  return validated
+"""
+
+[[exercises]]
+name = "io1"
+dir = "21_io"
+hint = """
+Write to a file:
+  let oc = open_out "file.txt" in
+  output_string oc "content";
+  close_out oc
+
+Always close channels when done!
+"""
+
+[[exercises]]
+name = "io2"
+dir = "21_io"
+hint = """
+Read a file line by line:
+  let ic = open_in "file.txt" in
+  let line = input_line ic in  (* may raise End_of_file *)
+  close_in ic
+
+Use a loop with exception handling to read all lines.
+"""
+
+[[exercises]]
+name = "printf1"
+dir = "22_printf"
+hint = """
+Printf.sprintf creates formatted strings:
+  Printf.sprintf "Name: %s" name  (* string *)
+  Printf.sprintf "Age: %d" age  (* int *)
+  Printf.sprintf "Height: %f" h  (* float *)
+  Printf.sprintf "%s is %d" name age  (* multiple *)
+"""
+
+[[exercises]]
+name = "printf2"
+dir = "22_printf"
+hint = """
+Printf format specifiers:
+  %05d  - pad with zeros to 5 digits
+  %.2f  - 2 decimal places
+  %10d  - right-align in 10 chars
+  %-5s  - left-align in 5 chars
+  %x    - hexadecimal
+  %X    - uppercase hex
+"""

@@ -71,7 +71,7 @@ dune exec ocalf -- reset intro1
 
 ## Topics
 
-OCalf covers 74 exercises across 19 topics:
+OCalf covers 86 exercises across 24 topics:
 
 | # | Topic | Exercises |
 |---|-------|-----------|
@@ -93,6 +93,11 @@ OCalf covers 74 exercises across 19 topics:
 | 15 | Recursion | 4 |
 | 16 | Refs | 3 |
 | 17 | Exceptions | 3 |
+| 18 | Arrays | 3 |
+| 19 | Imperative Programming | 3 |
+| 20 | Let Operators | 2 |
+| 21 | File I/O | 2 |
+| 22 | Printf | 2 |
 | -- | Quizzes | 3 |
 
 ## Exercise Format
