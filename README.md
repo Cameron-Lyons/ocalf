@@ -71,7 +71,7 @@ dune exec ocalf -- reset intro1
 
 ## Topics
 
-OCalf covers 108 exercises across 31 topics:
+OCalf covers 125 exercises across 37 topics:
 
 | # | Topic | Exercises |
 |---|-------|-----------|
@@ -105,7 +105,13 @@ OCalf covers 108 exercises across 31 topics:
 | 27 | Polymorphic Variants | 3 |
 | 28 | GADTs | 2 |
 | 29 | Lazy Evaluation | 2 |
-| -- | Quizzes | 4 |
+| 30 | Sets | 3 |
+| 31 | Objects | 3 |
+| 32 | Bytes | 2 |
+| 33 | Phantom Types | 2 |
+| 34 | Mutual Recursion | 2 |
+| 35 | Error Handling | 2 |
+| -- | Quizzes | 5 |
 
 ## Exercise Format
 

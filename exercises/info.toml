@@ -1165,3 +1165,195 @@ Review:
 - Polymorphic variants with data
 - Hashtbl for memoization
 """
+
+[[exercises]]
+name = "sets1"
+dir = "30_sets"
+hint = """
+Sets are functional (immutable) collections of unique elements:
+  module IntSet = Set.Make(Int)
+  IntSet.empty  (* empty set *)
+  IntSet.add 5 set  (* returns new set with 5 added *)
+  IntSet.mem 5 set  (* true if 5 is in the set *)
+  IntSet.cardinal set  (* number of elements *)
+  IntSet.elements set  (* sorted list of elements *)
+"""
+
+[[exercises]]
+name = "sets2"
+dir = "30_sets"
+hint = """
+Set operations:
+  IntSet.union a b  (* elements in a or b *)
+  IntSet.inter a b  (* elements in both a and b *)
+  IntSet.diff a b  (* elements in a but not b *)
+  IntSet.subset a b  (* true if a is a subset of b *)
+  IntSet.disjoint a b  (* true if a and b share no elements *)
+"""
+
+[[exercises]]
+name = "sets3"
+dir = "30_sets"
+hint = """
+Transform and query sets:
+  StringSet.map f s  (* apply f to each element *)
+  StringSet.filter pred s  (* keep elements matching pred *)
+  StringSet.fold (fun elt acc -> ...) s init  (* fold over elements *)
+  StringSet.exists pred s  (* true if any element matches *)
+  StringSet.for_all pred s  (* true if all elements match *)
+"""
+
+[[exercises]]
+name = "objects1"
+dir = "31_objects"
+hint = """
+Immediate objects are created inline:
+  let obj = object
+    val x = 5  (* instance variable *)
+    method get_x = x  (* method *)
+    method double = x * 2
+  end
+Call methods with #: obj#get_x
+"""
+
+[[exercises]]
+name = "objects2"
+dir = "31_objects"
+hint = """
+Classes define reusable object templates:
+  class counter init = object
+    val mutable count = init
+    method get = count
+    method incr = count <- count + 1
+  end
+  let c = new counter 0
+Inherit with: inherit parent_class args
+Override with: method! name = ...
+"""
+
+[[exercises]]
+name = "objects3"
+dir = "31_objects"
+hint = """
+Object types use structural subtyping:
+  type shape = < area : float; describe : string >
+Any object with matching methods satisfies the type.
+Create objects as functions:
+  let circle r : shape = object
+    method area = Float.pi *. r *. r
+    method describe = "circle"
+  end
+"""
+
+[[exercises]]
+name = "bytes1"
+dir = "32_bytes"
+hint = """
+Bytes are mutable sequences of characters:
+  Bytes.make 5 'x'  (* create 5 bytes all 'x' *)
+  Bytes.get b 0  (* get byte at index 0 *)
+  Bytes.set b 0 'H'  (* set byte at index 0 *)
+  Bytes.to_string b  (* convert to immutable string *)
+  Bytes.of_string s  (* create mutable copy of string *)
+"""
+
+[[exercises]]
+name = "bytes2"
+dir = "32_bytes"
+hint = """
+Bytes module operations:
+  Bytes.blit src src_pos dst dst_pos len  (* copy bytes between buffers *)
+  Bytes.sub_string b start len  (* extract substring *)
+  Bytes.cat a b  (* concatenate two byte sequences *)
+  Bytes.init n f  (* create n bytes where byte i = f i *)
+  Bytes.create n  (* create n uninitialized bytes *)
+"""
+
+[[exercises]]
+name = "phantom_types1"
+dir = "33_phantom_types"
+hint = """
+Phantom types add type-level tags without runtime cost:
+  type meters
+  type seconds
+  type _ quantity = Qty : float -> _ quantity
+  let meters v : meters quantity = Qty v
+  let seconds v : seconds quantity = Qty v
+The type parameter prevents mixing different units.
+"""
+
+[[exercises]]
+name = "phantom_types2"
+dir = "33_phantom_types"
+hint = """
+Phantom types can encode state machines:
+  type locked
+  type unlocked
+  type _ door = Door : string -> _ door
+  let lock : unlocked door -> locked door = ...
+  let open_door : unlocked door -> string = ...
+Only unlocked doors can be opened - enforced at compile time!
+"""
+
+[[exercises]]
+name = "mutual_recursion1"
+dir = "34_mutual_recursion"
+hint = """
+Mutually recursive functions use `and`:
+  let rec is_even n =
+    if n = 0 then true else is_odd (n - 1)
+  and is_odd n =
+    if n = 0 then false else is_even (n - 1)
+Both functions can call each other.
+"""
+
+[[exercises]]
+name = "mutual_recursion2"
+dir = "34_mutual_recursion"
+hint = """
+Build an expression evaluator with recursive types:
+  type expr = Num of int | Add of expr * expr | ...
+  type env = (string * int) list
+  let rec eval env = function
+    | Num n -> n
+    | Add (a, b) -> eval env a + eval env b
+    | Var name -> List.assoc name env
+    | Let (name, value, body) -> eval ((name, eval env value) :: env) body
+"""
+
+[[exercises]]
+name = "error_handling1"
+dir = "35_error_handling"
+hint = """
+Convert between error strategies:
+  Option -> Result: match opt with Some x -> Ok x | None -> Error msg
+  Result -> Option: match res with Ok x -> Some x | Error _ -> None
+  Safe parsing: int_of_string_opt returns an option
+Use pattern matching on each type to convert.
+"""
+
+[[exercises]]
+name = "error_handling2"
+dir = "35_error_handling"
+hint = """
+Chain error-prone operations with let*:
+  let ( let* ) = Result.bind
+  let validate s =
+    let* n = parse_int s in
+    let* n = check_positive n in
+    Ok n
+Each let* short-circuits on Error.
+For lists: fold with let* to accumulate results.
+"""
+
+[[exercises]]
+name = "quiz5"
+dir = "quizzes"
+hint = """
+This quiz covers sets, objects, bytes, and error handling.
+Review:
+- Set.Make and set operations (union, inter, diff)
+- Classes, inheritance, and structural object types
+- Bytes for mutable string manipulation
+- Result chaining with let*
+"""
