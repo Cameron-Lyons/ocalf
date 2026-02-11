@@ -1514,3 +1514,171 @@ Review:
 - Stack module for bracket matching
 - Existential types with records
 """
+
+[[exercises]]
+name = "local_opens1"
+dir = "41_local_opens"
+hint = """
+Local open with Module.( ... ):
+  StringMap.(empty |> add "key" 5 |> add "key2" 10)
+Local open with let open:
+  let open Printf in sprintf "%d" 42
+Both bring module contents into a limited scope.
+"""
+
+[[exercises]]
+name = "local_opens2"
+dir = "41_local_opens"
+hint = """
+Use local opens in expressions:
+  IntSet.(union a b |> diff c)
+  List.map Printf.(sprintf "%d") [1; 2; 3]
+Local opens keep code concise without polluting the global namespace.
+"""
+
+[[exercises]]
+name = "tail_recursion1"
+dir = "42_tail_recursion"
+hint = """
+The accumulator pattern makes recursion tail-recursive:
+  let length lst =
+    let rec aux acc = function
+      | [] -> acc
+      | _ :: tl -> aux (acc + 1) tl
+    in aux 0 lst
+The recursive call is the last operation (tail position).
+For map, accumulate results reversed, then List.rev at the end.
+"""
+
+[[exercises]]
+name = "tail_recursion2"
+dir = "42_tail_recursion"
+hint = """
+Tail-recursive flatten:
+  let rec aux acc = function
+    | [] -> List.rev acc
+    | [] :: rest -> aux acc rest
+    | (x :: xs) :: rest -> aux (x :: acc) (xs :: rest)
+For partition: maintain two accumulators (yes, no), reverse both at the end.
+"""
+
+[[exercises]]
+name = "tail_recursion3"
+dir = "42_tail_recursion"
+hint = """
+For tree traversal without recursion, use an explicit work list:
+  let rec aux acc = function
+    | [] -> acc
+    | Leaf :: rest -> aux acc rest
+    | Node (v, l, r) :: rest -> aux (acc + v) (l :: r :: rest)
+For in-order traversal, push items in right-self-left order.
+"""
+
+[[exercises]]
+name = "functorial_design1"
+dir = "43_functorial_design"
+hint = """
+Design a sorted list using a functor over Comparable:
+  module SortedList (C : Comparable) = struct
+    type t = C.t list
+    let insert x lst = ... (* maintain sorted order using C.compare *)
+  end
+Use C.compare to decide where to insert: < 0 means before, = 0 means duplicate.
+"""
+
+[[exercises]]
+name = "functorial_design2"
+dir = "43_functorial_design"
+hint = """
+Functors can add behavior to existing modules:
+  module WithLogging (S : KV_Store) = struct
+    type 'a t = { store : 'a S.t; log : string list ref }
+    let set k v t = t.log := msg :: !(t.log); S.set k v t.store
+  end
+This is the decorator pattern at the module level.
+"""
+
+[[exercises]]
+name = "cps1"
+dir = "44_cps"
+hint = """
+In CPS, every function takes an extra argument `k` (the continuation):
+  let add_cps x y k = k (x + y)
+Chain operations by nesting continuations:
+  add_cps 2 3 (fun sum -> mul_cps sum 4 (fun result -> ...))
+For fold_cps: f takes acc, element, and a continuation.
+"""
+
+[[exercises]]
+name = "cps2"
+dir = "44_cps"
+hint = """
+CPS enables early exit and backtracking:
+  let rec find_cps pred lst ~on_found ~on_missing =
+    match lst with
+    | [] -> on_missing ()
+    | x :: xs -> if pred x then on_found x
+                 else find_cps pred xs ~on_found ~on_missing
+For trees: search left, with on_missing continuing to search right.
+"""
+
+[[exercises]]
+name = "extensible_variants1"
+dir = "45_extensible_variants"
+hint = """
+Extensible variant types can be extended after definition:
+  type event = ..
+  type event += Click
+  type event += KeyPress of char
+Match with a catch-all _ case since new constructors can be added.
+New constructors can be added anywhere, even in different modules.
+"""
+
+[[exercises]]
+name = "extensible_variants2"
+dir = "45_extensible_variants"
+hint = """
+Extensible variants work with GADTs:
+  type _ command = ..
+  type _ command += Get : string -> string option command
+  type _ command += Set : string * string -> unit command
+Handle commands with a record of polymorphic function:
+  type handler = { handle : 'a. 'a command -> 'a option }
+"""
+
+[[exercises]]
+name = "monads1"
+dir = "46_monads"
+hint = """
+The Writer monad collects a log alongside computation:
+  type 'a t = 'a * string list
+  let return x = (x, [])
+  let bind (x, log1) f = let (y, log2) = f x in (y, log1 @ log2)
+  let tell msg = ((), [msg])
+Use let* to chain operations that produce log entries.
+"""
+
+[[exercises]]
+name = "monads2"
+dir = "46_monads"
+hint = """
+The State monad threads state through computation:
+  type ('s, 'a) t = 's -> 'a * 's
+  let return x = fun s -> (x, s)
+  let bind m f = fun s -> let (a, s') = m s in f a s'
+  let get = fun s -> (s, s)
+  let put s = fun _ -> ((), s)
+Run with: State.run program initial_state
+"""
+
+[[exercises]]
+name = "quiz7"
+dir = "quizzes"
+hint = """
+This quiz covers tail recursion, CPS, extensible variants, and monads.
+Review:
+- Tail-recursive list operations with accumulators
+- CPS for tree depth computation
+- Extensible variant type matching
+- Option monad for chained lookups
+"""
