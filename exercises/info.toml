@@ -1357,3 +1357,160 @@ Review:
 - Bytes for mutable string manipulation
 - Result chaining with let*
 """
+
+[[exercises]]
+name = "closures1"
+dir = "36_closures"
+hint = """
+Closures capture their environment:
+  let make_adder n = fun x -> n + x
+  let add5 = make_adder 5  (* n=5 is captured *)
+  add5 3  (* returns 8 *)
+Closures can capture mutable state too:
+  let make_counter () =
+    let n = ref 0 in
+    fun () -> incr n; !n
+"""
+
+[[exercises]]
+name = "closures2"
+dir = "36_closures"
+hint = """
+Closures as iterators:
+- Return a function that maintains internal state
+- Each call advances the state and returns the next value
+- Return None when exhausted (or keep going for infinite iterators)
+Use `ref` for mutable state inside the closure.
+"""
+
+[[exercises]]
+name = "closures3"
+dir = "36_closures"
+hint = """
+Memoization caches function results:
+  let memoize f =
+    let cache = Hashtbl.create 16 in
+    fun x -> match Hashtbl.find_opt cache x with
+      | Some v -> v
+      | None -> let v = f x in Hashtbl.add cache x v; v
+For recursive memoization, use an open-recursive style:
+  let memo_rec f = ... fun x -> f memoized x
+"""
+
+[[exercises]]
+name = "applicatives1"
+dir = "37_applicatives"
+hint = """
+let+ maps a function over a wrapped value:
+  let ( let+ ) o f = Option.map f o
+  let+ x = Some 5 in x * 2  (* Some 10 *)
+It's like let* but the body returns an unwrapped value.
+"""
+
+[[exercises]]
+name = "applicatives2"
+dir = "37_applicatives"
+hint = """
+and+ combines multiple wrapped values:
+  let ( and+ ) a b = match (a, b) with
+    | (Some va, Some vb) -> Some (va, vb)
+    | _ -> None
+Use with let+:
+  let+ x = Some 1 and+ y = Some 2 in x + y  (* Some 3 *)
+"""
+
+[[exercises]]
+name = "queues1"
+dir = "38_queues_stacks"
+hint = """
+Queue is a FIFO (first-in, first-out) data structure:
+  let q = Queue.create () in
+  Queue.push 1 q;  (* add to back *)
+  Queue.pop q  (* remove from front: 1 *)
+  Queue.peek q  (* look at front without removing *)
+  Queue.length q  (* number of elements *)
+  Queue.iter f q  (* iterate over elements *)
+"""
+
+[[exercises]]
+name = "stacks1"
+dir = "38_queues_stacks"
+hint = """
+Stack is a LIFO (last-in, first-out) data structure:
+  let s = Stack.create () in
+  Stack.push 1 s;  (* add to top *)
+  Stack.pop s  (* remove from top: 1 *)
+  Stack.top s  (* look at top without removing *)
+  Stack.length s  (* number of elements *)
+  Stack.iter f s  (* iterate from top to bottom *)
+"""
+
+[[exercises]]
+name = "format1"
+dir = "39_format"
+hint = """
+Format.asprintf formats strings (like Printf.sprintf but more powerful):
+  Format.asprintf "Hello, %s!" "world"
+  Format.asprintf "%d + %d = %d" 2 3 5
+For lists, use %a with Format.pp_print_list:
+  Format.asprintf "[%a]"
+    (Format.pp_print_list ~pp_sep:(fun fmt () -> Format.pp_print_string fmt "; ")
+       Format.pp_print_int)
+    [1; 2; 3]
+"""
+
+[[exercises]]
+name = "format2"
+dir = "39_format"
+hint = """
+Write custom pretty printers with type: Format.formatter -> 'a -> unit
+  let pp_point fmt p =
+    Format.fprintf fmt "(%.1f, %.1f)" p.x p.y
+Use %a to embed custom printers:
+  Format.fprintf fmt "Circle(center=%a)" pp_point center
+"""
+
+[[exercises]]
+name = "type_annotations1"
+dir = "40_type_annotations"
+hint = """
+Type aliases give names to existing types:
+  type name = string
+  type age = int
+Parameterized types take type variables:
+  type 'a pair = 'a * 'a
+  type ('a, 'b) either = Left of 'a | Right of 'b
+"""
+
+[[exercises]]
+name = "type_annotations2"
+dir = "40_type_annotations"
+hint = """
+Locally abstract types with (type a):
+  let show_any (type a) (show : a -> string) (x : a) = show x
+First-class modules with type constraints:
+  module type Showable = sig type t val show : t -> string end
+  let show_value (type a) (module S : Showable with type t = a) x = S.show x
+"""
+
+[[exercises]]
+name = "type_annotations3"
+dir = "40_type_annotations"
+hint = """
+Object subtyping uses :> for coercion:
+  let p : printable = (my_object :> printable)
+The target type must be a supertype (fewer methods).
+This lets you store different object types in the same list.
+"""
+
+[[exercises]]
+name = "quiz6"
+dir = "quizzes"
+hint = """
+This quiz covers closures, applicatives, data structures, and types.
+Review:
+- Closures capturing variables and mutable state
+- let+ and and+ for applicative style
+- Stack module for bracket matching
+- Existential types with records
+"""
