@@ -3,4 +3,7 @@ _build/
 .merlin
 *.byte
 *.native
+*.cmi
+*.cmx
+*.o
 .ocalf-progress

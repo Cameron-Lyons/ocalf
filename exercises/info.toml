@@ -924,3 +924,244 @@ Printf format specifiers:
   %x    - hexadecimal
   %X    - uppercase hex
 """
+
+[[exercises]]
+name = "strings1"
+dir = "23_strings"
+hint = """
+Basic String module functions:
+  String.length "abc"  (* 3 *)
+  String.uppercase_ascii "hi"  (* "HI" *)
+  String.lowercase_ascii "HI"  (* "hi" *)
+  String.sub "hello" 1 3  (* "ell" - start at index 1, take 3 chars *)
+  String.get "abc" 0  (* 'a' *)
+"""
+
+[[exercises]]
+name = "strings2"
+dir = "23_strings"
+hint = """
+Buffer is used for efficient string building:
+  let buf = Buffer.create 16 in
+  Buffer.add_string buf "hello";
+  Buffer.add_char buf '!';
+  Buffer.contents buf  (* "hello!" *)
+  Buffer.clear buf  (* empties the buffer *)
+"""
+
+[[exercises]]
+name = "strings3"
+dir = "23_strings"
+hint = """
+String splitting and searching:
+  String.split_on_char ',' "a,b,c"  (* ["a"; "b"; "c"] *)
+  String.concat ", " ["a"; "b"]  (* "a, b" *)
+  String.contains "abc" 'b'  (* true *)
+  String.starts_with ~prefix:"he" "hello"  (* true *)
+  String.ends_with ~suffix:"lo" "hello"  (* true *)
+"""
+
+[[exercises]]
+name = "sequences1"
+dir = "24_sequences"
+hint = """
+Create sequences:
+  Seq.empty  (* empty sequence *)
+  Seq.return 42  (* single-element sequence *)
+  Seq.cons 1 rest  (* prepend element *)
+  List.to_seq [1; 2; 3]  (* convert list to seq *)
+  List.of_seq seq  (* convert seq to list *)
+"""
+
+[[exercises]]
+name = "sequences2"
+dir = "24_sequences"
+hint = """
+Transform sequences:
+  Seq.map (fun x -> x * 2) seq  (* transform each element *)
+  Seq.filter (fun x -> x > 0) seq  (* keep matching elements *)
+  Seq.fold_left (+) 0 seq  (* accumulate *)
+  Seq.take 3 seq  (* first 3 elements *)
+  Seq.drop 3 seq  (* skip first 3 *)
+"""
+
+[[exercises]]
+name = "sequences3"
+dir = "24_sequences"
+hint = """
+Generate sequences:
+  Seq.unfold (fun n -> if n > 3 then None else Some (n, n+1)) 1
+  (* yields 1, 2, 3 then stops *)
+  Seq.ints 1  (* infinite: 1, 2, 3, 4, ... *)
+Use Seq.take to limit infinite sequences.
+"""
+
+[[exercises]]
+name = "hashtables1"
+dir = "25_hashtables"
+hint = """
+Hash tables are mutable key-value stores:
+  let tbl = Hashtbl.create 16 in
+  Hashtbl.add tbl "key" value;
+  Hashtbl.find tbl "key"  (* returns value *)
+  Hashtbl.length tbl  (* number of bindings *)
+"""
+
+[[exercises]]
+name = "hashtables2"
+dir = "25_hashtables"
+hint = """
+Hash table operations:
+  Hashtbl.replace tbl key new_value  (* update existing key *)
+  Hashtbl.mem tbl key  (* true if key exists *)
+  Hashtbl.remove tbl key  (* delete a binding *)
+  Hashtbl.find_opt tbl key  (* returns option instead of raising *)
+"""
+
+[[exercises]]
+name = "hashtables3"
+dir = "25_hashtables"
+hint = """
+Hash table iteration and conversion:
+  Hashtbl.iter (fun k v -> ...) tbl  (* iterate over all bindings *)
+  Hashtbl.to_seq tbl  (* convert to sequence of pairs *)
+  Hashtbl.of_seq seq  (* create from sequence of pairs *)
+"""
+
+[[exercises]]
+name = "maps1"
+dir = "26_maps"
+hint = """
+Maps are functional (immutable) sorted dictionaries:
+  module StringMap = Map.Make(String)
+  StringMap.empty  (* empty map *)
+  StringMap.add "key" value map  (* returns new map with binding *)
+  StringMap.find "key" map  (* find value *)
+  StringMap.mem "key" map  (* check membership *)
+  StringMap.cardinal map  (* number of bindings *)
+"""
+
+[[exercises]]
+name = "maps2"
+dir = "26_maps"
+hint = """
+Map transformation:
+  IntMap.map f m  (* apply f to all values *)
+  IntMap.filter pred m  (* keep bindings where pred key value is true *)
+  IntMap.remove key m  (* return map without key *)
+  IntMap.find_opt key m  (* returns option *)
+"""
+
+[[exercises]]
+name = "maps3"
+dir = "26_maps"
+hint = """
+Map folding and conversion:
+  StringMap.fold (fun key value acc -> ...) map init
+  StringMap.bindings map  (* list of (key, value) pairs *)
+  StringMap.union (fun key v1 v2 -> Some ...) m1 m2  (* merge maps *)
+Note: fold iterates in key order (ascending).
+"""
+
+[[exercises]]
+name = "poly_variants1"
+dir = "27_polymorphic_variants"
+hint = """
+Polymorphic variants use backtick prefix:
+  `Red, `Green, `Blue
+They don't need type declarations:
+  let f = function
+    | `Red -> "red"
+    | `Green -> "green"
+    | `Blue -> "blue"
+"""
+
+[[exercises]]
+name = "poly_variants2"
+dir = "27_polymorphic_variants"
+hint = """
+Polymorphic variant types can be composed:
+  type primary = [ `Red | `Green | `Blue ]
+  type extended = [ primary | `Yellow | `Cyan ]
+Use #type_name in patterns to match a subtype:
+  match color with
+  | #primary as c -> primary_handler c
+  | `Yellow -> ...
+"""
+
+[[exercises]]
+name = "poly_variants3"
+dir = "27_polymorphic_variants"
+hint = """
+Polymorphic variants can carry data:
+  `Circle 5.0
+  `Rect (3.0, 4.0)
+  `Point
+Match them just like regular variants:
+  match shape with
+  | `Circle r -> ...
+  | `Rect (w, h) -> ...
+"""
+
+[[exercises]]
+name = "gadt1"
+dir = "28_gadt"
+hint = """
+GADTs (Generalized Algebraic Data Types) encode type info in constructors:
+  type _ expr =
+    | Int : int -> int expr
+    | Bool : bool -> bool expr
+    | Add : int expr * int expr -> int expr
+The return type varies per constructor.
+Use `let rec eval : type a. a expr -> a = function` for polymorphic recursion.
+"""
+
+[[exercises]]
+name = "gadt2"
+dir = "28_gadt"
+hint = """
+GADTs can encode type-safe heterogeneous structures:
+  type _ hlist =
+    | HNil : unit hlist
+    | HCons : 'a * 'b hlist -> ('a * 'b) hlist
+The type tracks the structure of the list.
+For sprintf, use an accumulator string with a recursive helper:
+  let rec go : type a. string -> a fmt -> a = fun acc -> function
+    | Lit s -> acc ^ s  (* base case: return the accumulated string *)
+    | SInt rest -> fun n -> go (acc ^ string_of_int n) rest
+Each format constructor adds a function parameter to the result type.
+"""
+
+[[exercises]]
+name = "lazy1"
+dir = "29_lazy"
+hint = """
+Lazy values defer computation until forced:
+  let x = lazy (expensive_computation ()) in
+  Lazy.force x  (* runs the computation *)
+  Lazy.force x  (* returns cached result, doesn't recompute *)
+  Lazy.is_val x  (* true if already forced *)
+"""
+
+[[exercises]]
+name = "lazy2"
+dir = "29_lazy"
+hint = """
+Lazy enables infinite data structures:
+  type 'a stream = Cons of 'a * 'a stream Lazy.t
+  let rec nats_from n = Cons (n, lazy (nats_from (n + 1)))
+Force the tail with Lazy.force to traverse.
+"""
+
+[[exercises]]
+name = "quiz4"
+dir = "quizzes"
+hint = """
+This quiz covers strings, data structures, and advanced types.
+Review:
+- String splitting, joining, and Buffer
+- Seq.unfold for generating sequences
+- Map.Make for functional maps
+- Polymorphic variants with data
+- Hashtbl for memoization
+"""
