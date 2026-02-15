@@ -69,8 +69,15 @@ let run_hint name =
   in
   match exercise with
   | Some ex ->
+      let path =
+        Exercise.exercise_path ~exercises_dir:config.exercises_dir ex
+      in
       Printf.printf "%s Hint for %s:\n\n%s\n" (yellow "💡") (bold ex.name)
         ex.hint;
+      Printf.printf
+        "\n%s Style check: keep code clean and formatted. Run \
+         `ocamlformat -i %s` before verify.\n"
+        (yellow "🧹") path;
       `Ok ()
   | None ->
       Printf.printf "No current exercise or exercise not found\n";
@@ -177,6 +184,8 @@ let run_default () =
       in
       Printf.printf "Current exercise: %s\n" (bold ex.name);
       Printf.printf "  Path: %s\n\n" path;
+      Printf.printf "Style:\n";
+      Printf.printf "  ocamlformat -i %s  - Format current exercise\n\n" path;
       Printf.printf "Commands:\n";
       Printf.printf "  ocalf verify  - Verify current exercise\n";
       Printf.printf "  ocalf hint    - Show hint\n";

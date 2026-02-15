@@ -1682,3 +1682,150 @@ Review:
 - Extensible variant type matching
 - Option monad for chained lookups
 """
+
+[[exercises]]
+name = "effect_handlers1"
+dir = "47_effect_handlers"
+hint = """
+Declare an effect as an extension of Effect.t:
+  type _ Effect.t += Read_env : string -> string option Effect.t
+Perform it with:
+  perform (Read_env "PORT")
+Handle it with Effect.Deep:
+  match thunk () with
+  | value -> value
+  | effect (Read_env key), k -> continue k (lookup key)
+"""
+
+[[exercises]]
+name = "effect_handlers2"
+dir = "47_effect_handlers"
+hint = """
+Model nondeterministic choice with an effect:
+  type _ Effect.t += Choose : int list -> int Effect.t
+Perform with:
+  perform (Choose [a; b; c])
+Handle by selecting one element and resuming:
+  | effect (Choose xs), k -> continue k (pick xs)
+This lets the same computation run under different strategies.
+"""
+
+[[exercises]]
+name = "domains_atomics1"
+dir = "48_domains_atomics"
+hint = """
+Use Atomic for safe shared mutable state across domains:
+  let c = Atomic.make 0
+  Atomic.incr c
+Spawn with:
+  let d = Domain.spawn (fun () -> ...)
+Wait for completion with:
+  Domain.join d
+"""
+
+[[exercises]]
+name = "domains_atomics2"
+dir = "48_domains_atomics"
+hint = """
+For lock-free max updates, use CAS in a retry loop:
+  let cur = Atomic.get cell in
+  if x <= cur then ()
+  else if Atomic.compare_and_set cell cur x then ()
+  else retry
+Run updates in parallel domains and join them all.
+"""
+
+[[exercises]]
+name = "recursive_modules1"
+dir = "49_recursive_modules"
+hint = """
+Recursive modules use module rec ... and ...:
+  module rec A : sig ... end = struct ... B.x ... end
+  and B : sig ... end = struct ... A.y ... end
+This allows mutually recursive definitions across module boundaries.
+"""
+
+[[exercises]]
+name = "recursive_modules2"
+dir = "49_recursive_modules"
+hint = """
+Recursive modules can also define mutually recursive types.
+Pattern:
+  module rec A : sig type t = ... B.t ... end = struct ... end
+  and B : sig type t = ... A.t ... end = struct ... end
+Call across modules to compute combined recursive functions.
+"""
+
+[[exercises]]
+name = "oo_inheritance1"
+dir = "50_oo_inheritance"
+hint = """
+Virtual classes define required methods:
+  class virtual shape = object
+    method virtual area : float
+  end
+Subclasses implement virtual methods and can inherit from concrete classes:
+  class square s = object inherit rectangle s s end
+"""
+
+[[exercises]]
+name = "oo_inheritance2"
+dir = "50_oo_inheritance"
+hint = """
+Override methods with `method!` and call parent implementation via `super`:
+  class child = object
+    inherit parent as super
+    method! m x = super#m (transform x)
+  end
+Useful for adding behavior (fees, logging, checks) while reusing base logic.
+"""
+
+[[exercises]]
+name = "ffi_interop1"
+dir = "51_ffi_interop"
+hint = """
+Interop usually requires explicit byte layouts.
+For a 16-bit big-endian integer:
+  high = (n lsr 8) land 0xFF
+  low = n land 0xFF
+Reconstruct with:
+  (high lsl 8) lor low
+"""
+
+[[exercises]]
+name = "ffi_interop2"
+dir = "51_ffi_interop"
+hint = """
+C strings are null-terminated byte arrays.
+To encode:
+- allocate `len + 1`
+- copy chars
+- set trailing '\000'
+To decode:
+- scan until '\000'
+- convert prefix bytes to an OCaml string.
+"""
+
+[[exercises]]
+name = "parsing_rewriting1"
+dir = "52_parsing_rewriting"
+hint = """
+A tiny parser pipeline has three phases:
+1) tokenize (string -> token list)
+2) parse (token list -> AST)
+3) rewrite/optimize (AST -> AST)
+Constant folding pattern:
+  Add (Int x, Int y) -> Int (x + y)
+"""
+
+[[exercises]]
+name = "parsing_rewriting2"
+dir = "52_parsing_rewriting"
+hint = """
+A rewrite pass should recurse first, then apply local rules.
+Useful simplifications for addition:
+- `0 + e -> e`
+- `e + 0 -> e`
+- constant fold: `Int a + Int b -> Int (a + b)`
+When no rule matches, rebuild the node with simplified children.
+"""
