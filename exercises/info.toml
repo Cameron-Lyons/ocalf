@@ -1800,9 +1800,9 @@ C strings are null-terminated byte arrays.
 To encode:
 - allocate `len + 1`
 - copy chars
-- set trailing '\000'
+- set trailing '\\000'
 To decode:
-- scan until '\000'
+- scan until '\\000'
 - convert prefix bytes to an OCaml string.
 """
 
@@ -1828,4 +1828,282 @@ Useful simplifications for addition:
 - `e + 0 -> e`
 - constant fold: `Int a + Int b -> Int (a + b)`
 When no rule matches, rebuild the node with simplified children.
+"""
+
+[[exercises]]
+name = "value_restriction1"
+dir = "53_value_restriction"
+hint = """
+Partially applied functions can hit value restriction and become weakly polymorphic.
+Eta-expand to regain polymorphism:
+  let f xs = partial xs
+Your result should work on both int lists and string lists.
+"""
+
+[[exercises]]
+name = "value_restriction2"
+dir = "53_value_restriction"
+hint = """
+Use a polymorphic record field for a truly generic value:
+  type poly = { run : 'a. 'a -> 'a }
+Then build the identity implementation.
+"""
+
+[[exercises]]
+name = "value_restriction3"
+dir = "53_value_restriction"
+hint = """
+Mutable references can infer weak type variables at top level.
+Wrap creation in a function so each call gets a fresh polymorphic instance:
+  let make () = ref None
+"""
+
+[[exercises]]
+name = "variance1"
+dir = "54_variance_private_types"
+hint = """
+Read-only containers are usually covariant.
+Use `+'a` when values only flow out of the type.
+Then widen from a specific polymorphic variant to a broader one.
+"""
+
+[[exercises]]
+name = "variance2"
+dir = "54_variance_private_types"
+hint = """
+Consumer/sink types are usually contravariant.
+Use `-'a` when values only flow into the type.
+This allows using a broader consumer where a narrower one is required.
+"""
+
+[[exercises]]
+name = "private_types1"
+dir = "54_variance_private_types"
+hint = """
+Expose a type as private in the signature:
+  type t = private int
+Create values through a smart constructor (`make`) that enforces invariants.
+"""
+
+[[exercises]]
+name = "advanced_modules1"
+dir = "55_advanced_modules"
+hint = """
+`module type of` captures a module's inferred interface:
+  module type S = module type of M
+Use it to avoid repeating signatures.
+"""
+
+[[exercises]]
+name = "advanced_modules2"
+dir = "55_advanced_modules"
+hint = """
+Use a sharing constraint to tie abstract types together:
+  (B : S with type t = A.t)
+This forces two modules to agree on the same `t`.
+"""
+
+[[exercises]]
+name = "advanced_modules3"
+dir = "55_advanced_modules"
+hint = """
+Destructive substitution (`:=`) specializes and removes an abstract type:
+  module type Int_show = Show with type t := int
+Use it when you want a concrete type in the derived signature.
+"""
+
+[[exercises]]
+name = "advanced_modules4"
+dir = "55_advanced_modules"
+hint = """
+First-class modules can be stored in lists:
+  (module M : S)
+Unpack each module in a fold and aggregate its values.
+"""
+
+[[exercises]]
+name = "ppx_dune1"
+dir = "56_ppx_dune"
+hint = """
+This scaffold imitates what a deriving PPX often generates.
+Write a deterministic pretty-printer for the record shape requested by asserts.
+"""
+
+[[exercises]]
+name = "ppx_dune2"
+dir = "56_ppx_dune"
+hint = """
+Model the idea behind inline tests with a tiny helper:
+- pass means no exception
+- fail means raise with a useful message
+"""
+
+[[exercises]]
+name = "ppx_dune3"
+dir = "56_ppx_dune"
+hint = """
+Build a Dune stanza string that includes preprocessors:
+  (library (name ...) (preprocess (pps ...)))
+Use `String.concat` to join PPX names.
+"""
+
+[[exercises]]
+name = "ocamllex_menhir1"
+dir = "57_ocamllex_menhir"
+hint = """
+Tokenizer step: map lexemes to tokens.
+For this scaffold:
+- '+' -> PLUS
+- '*' -> STAR
+- '(' and ')' -> paren tokens
+- decimal text -> INT (int_of_string ...)
+"""
+
+[[exercises]]
+name = "ocamllex_menhir2"
+dir = "57_ocamllex_menhir"
+hint = """
+Parser step: build precedence with recursive descent:
+- factor: ints and parenthesized expressions
+- term: chain STAR
+- expr: chain PLUS
+`*` should bind tighter than `+`.
+"""
+
+[[exercises]]
+name = "ocamllex_menhir3"
+dir = "57_ocamllex_menhir"
+hint = """
+Return parse errors as `('a, string) result` rather than exceptions.
+Keep success and failure paths explicit in pattern matches.
+"""
+
+[[exercises]]
+name = "ocamllex_menhir4"
+dir = "57_ocamllex_menhir"
+hint = """
+Compose a tiny pipeline:
+1) tokenize input
+2) parse tokens
+3) rewrite/fold constants
+4) evaluate
+Use `|>` for readable left-to-right flow.
+"""
+
+[[exercises]]
+name = "async1"
+dir = "58_async"
+hint = """
+Callback chaining pattern:
+  fetch id (fun value -> next value)
+Propagate `Error` unchanged, and combine successful steps into one result.
+"""
+
+[[exercises]]
+name = "async2"
+dir = "58_async"
+hint = """
+For task monads:
+  bind t f () = let x = t () in f x ()
+On errors, stop early and propagate the same error value.
+"""
+
+[[exercises]]
+name = "async3"
+dir = "58_async"
+hint = """
+Cancellation gates execution:
+- cancelled token -> Error "cancelled"
+- active token -> keep evaluating
+Thread the token through bind to short-circuit safely.
+"""
+
+[[exercises]]
+name = "ffi_stubs_ctypes1"
+dir = "59_ffi_stubs_ctypes"
+hint = """
+Decode a 32-bit little-endian integer from bytes:
+  b0 + (b1 lsl 8) + (b2 lsl 16) + (b3 lsl 24)
+Use `Char.code` for each byte.
+"""
+
+[[exercises]]
+name = "ffi_stubs_ctypes2"
+dir = "59_ffi_stubs_ctypes"
+hint = """
+For C strings:
+- scan bytes until '\\000'
+- convert the prefix to an OCaml string
+Add a `max_len` guard and return an Error when no terminator is found.
+"""
+
+[[exercises]]
+name = "ffi_stubs_ctypes3"
+dir = "59_ffi_stubs_ctypes"
+hint = """
+Decode a packet layout:
+- tag (u16), payload length (u16), payload bytes, checksum (u8)
+Validate total length and checksum before returning `Ok`.
+"""
+
+[[exercises]]
+name = "testing_qcheck1"
+dir = "60_testing_qcheck"
+hint = """
+Table-driven tests apply the same function across many examples.
+Return descriptive failure messages that include case names and values.
+"""
+
+[[exercises]]
+name = "testing_qcheck2"
+dir = "60_testing_qcheck"
+hint = """
+Implement a deterministic property runner over generated trials.
+Stop at first failing sample and return its trial index and value.
+"""
+
+[[exercises]]
+name = "testing_qcheck3"
+dir = "60_testing_qcheck"
+hint = """
+After finding a failing input, repeatedly shrink it while it still fails.
+Return the minimal counterexample found.
+"""
+
+[[exercises]]
+name = "performance_gc1"
+dir = "61_performance_gc"
+hint = """
+Implement tail-recursive `map` with an accumulator and final `List.rev`.
+This avoids stack growth on long inputs.
+"""
+
+[[exercises]]
+name = "performance_gc2"
+dir = "61_performance_gc"
+hint = """
+Avoid repeated `^` concatenation for many strings.
+Use `Buffer` to build output incrementally.
+"""
+
+[[exercises]]
+name = "performance_gc3"
+dir = "61_performance_gc"
+hint = """
+Collect lightweight performance metrics:
+- CPU time with `Sys.time`
+- allocation deltas from `Gc.quick_stat`
+Return them in a metrics record.
+"""
+
+[[exercises]]
+name = "quiz8"
+dir = "quizzes"
+hint = """
+This quiz covers the new advanced tracks from topics 53-61.
+Review:
+- Value restriction and eta-expansion for polymorphism
+- First-class modules and folds over module packs
+- Token processing with precedence-aware expression evaluation
+- Deterministic property checks with shrinking
 """

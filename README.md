@@ -71,7 +71,7 @@ dune exec ocalf -- reset intro1
 
 ## Topics
 
-OCalf covers 160 exercises across 54 topics:
+OCalf covers 190 exercises across 63 topics:
 
 | # | Topic | Exercises |
 |---|-------|-----------|
@@ -128,7 +128,16 @@ OCalf covers 160 exercises across 54 topics:
 | 50 | OO Inheritance | 2 |
 | 51 | FFI Interop | 2 |
 | 52 | Parsing and Rewriting | 2 |
-| -- | Quizzes | 7 |
+| 53 | Value Restriction | 3 |
+| 54 | Variance + Private Types | 3 |
+| 55 | Advanced Modules | 4 |
+| 56 | PPX + Dune | 3 |
+| 57 | Ocamllex + Menhir | 4 |
+| 58 | Async | 3 |
+| 59 | Real FFI (stubs/ctypes) | 3 |
+| 60 | Testing + Property Testing | 3 |
+| 61 | Performance + GC | 3 |
+| -- | Quizzes | 8 |
 
 ## Exercise Format
 
