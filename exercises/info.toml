@@ -1,14 +1,22 @@
-[[exercises]]
-name = "intro1"
-dir = "00_intro"
+schema_version = 3
+
+[[exercise]]
+id = "intro1"
+path = "00_intro/intro1.ml"
+topic = "00_intro"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Welcome to OCalf! Your first task is to fix the syntax error.
 In OCaml, strings are enclosed in double quotes.
 """
 
-[[exercises]]
-name = "intro2"
-dir = "00_intro"
+[[exercise]]
+id = "intro2"
+path = "00_intro/intro2.ml"
+topic = "00_intro"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 OCaml has two types of comments:
 - (* Regular comments *)
@@ -16,18 +24,24 @@ OCaml has two types of comments:
 Comments can span multiple lines.
 """
 
-[[exercises]]
-name = "variables1"
-dir = "01_variables"
+[[exercise]]
+id = "variables1"
+path = "01_variables/variables1.ml"
+topic = "01_variables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 In OCaml, you bind values to names using `let`:
   let x = 5
 The value on the right is bound to the name on the left.
 """
 
-[[exercises]]
-name = "variables2"
-dir = "01_variables"
+[[exercise]]
+id = "variables2"
+path = "01_variables/variables2.ml"
+topic = "01_variables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 You can add type annotations to let bindings:
   let x : int = 5
@@ -35,9 +49,12 @@ You can add type annotations to let bindings:
 The type comes after a colon, before the equals sign.
 """
 
-[[exercises]]
-name = "variables3"
-dir = "01_variables"
+[[exercise]]
+id = "variables3"
+path = "01_variables/variables3.ml"
+topic = "01_variables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 OCaml allows shadowing - you can rebind a name to a new value:
   let x = 5
@@ -45,9 +62,12 @@ OCaml allows shadowing - you can rebind a name to a new value:
 This creates a new binding, it doesn't mutate the original.
 """
 
-[[exercises]]
-name = "variables4"
-dir = "01_variables"
+[[exercise]]
+id = "variables4"
+path = "01_variables/variables4.ml"
+topic = "01_variables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The `let ... in` expression creates a local scope:
   let x = 5 in
@@ -56,27 +76,36 @@ The `let ... in` expression creates a local scope:
 The bindings are only visible within the `in` expression.
 """
 
-[[exercises]]
-name = "functions1"
-dir = "02_functions"
+[[exercise]]
+id = "functions1"
+path = "02_functions/functions1.ml"
+topic = "02_functions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functions are defined using `let`:
   let add x y = x + y
 Parameters come after the function name, separated by spaces.
 """
 
-[[exercises]]
-name = "functions2"
-dir = "02_functions"
+[[exercise]]
+id = "functions2"
+path = "02_functions/functions2.ml"
+topic = "02_functions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functions can take multiple parameters:
   let greet name age = ...
 Call them with: greet "Alice" 30
 """
 
-[[exercises]]
-name = "functions3"
-dir = "02_functions"
+[[exercise]]
+id = "functions3"
+path = "02_functions/functions3.ml"
+topic = "02_functions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Labeled arguments use ~ prefix:
   let greet ~name ~age = ...
@@ -84,9 +113,12 @@ Call with: greet ~name:"Alice" ~age:30
 Or with punning: let name = "Alice" in greet ~name ~age:30
 """
 
-[[exercises]]
-name = "functions4"
-dir = "02_functions"
+[[exercise]]
+id = "functions4"
+path = "02_functions/functions4.ml"
+topic = "02_functions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Optional arguments use ? prefix and provide defaults:
   let greet ?(greeting="Hello") name = greeting ^ ", " ^ name
@@ -94,9 +126,12 @@ Call with: greet "Alice"  (* uses default *)
 Or: greet ~greeting:"Hi" "Bob"
 """
 
-[[exercises]]
-name = "functions5"
-dir = "02_functions"
+[[exercise]]
+id = "functions5"
+path = "02_functions/functions5.ml"
+topic = "02_functions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Partial application: apply some arguments to get a new function:
   let add x y = x + y
@@ -104,18 +139,24 @@ Partial application: apply some arguments to get a new function:
   add5 3  (* returns 8 *)
 """
 
-[[exercises]]
-name = "if1"
-dir = "03_if"
+[[exercise]]
+id = "if1"
+path = "03_if/if1.ml"
+topic = "03_if"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The basic if/then/else syntax:
   if condition then value1 else value2
 Both branches must have the same type!
 """
 
-[[exercises]]
-name = "if2"
-dir = "03_if"
+[[exercise]]
+id = "if2"
+path = "03_if/if2.ml"
+topic = "03_if"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 You can nest conditionals with `else if`:
   if x < 0 then "negative"
@@ -123,18 +164,24 @@ You can nest conditionals with `else if`:
   else "positive"
 """
 
-[[exercises]]
-name = "if3"
-dir = "03_if"
+[[exercise]]
+id = "if3"
+path = "03_if/if3.ml"
+topic = "03_if"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 In OCaml, `if` is an expression that returns a value:
   let result = if x > 0 then x * 2 else 0
 The value of the if expression is the value of the chosen branch.
 """
 
-[[exercises]]
-name = "primitive_types1"
-dir = "04_primitive_types"
+[[exercise]]
+id = "primitive_types1"
+path = "04_primitive_types/primitive_types1.ml"
+topic = "04_primitive_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 OCaml's primitive types:
 - int: 42, -5
@@ -143,9 +190,12 @@ OCaml's primitive types:
 - char: 'a', 'Z', '\\n'
 """
 
-[[exercises]]
-name = "primitive_types2"
-dir = "04_primitive_types"
+[[exercise]]
+id = "primitive_types2"
+path = "04_primitive_types/primitive_types2.ml"
+topic = "04_primitive_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 String operations:
 - Concatenation: "Hello" ^ " World"
@@ -154,9 +204,12 @@ String operations:
 - Substring: String.sub "hello" 1 3  (* returns "ell" *)
 """
 
-[[exercises]]
-name = "primitive_types3"
-dir = "04_primitive_types"
+[[exercise]]
+id = "primitive_types3"
+path = "04_primitive_types/primitive_types3.ml"
+topic = "04_primitive_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Type conversion functions:
 - int_of_float 3.14  (* returns 3 *)
@@ -167,9 +220,12 @@ Type conversion functions:
 - Char.chr 97  (* returns 'a' *)
 """
 
-[[exercises]]
-name = "primitive_types4"
-dir = "04_primitive_types"
+[[exercise]]
+id = "primitive_types4"
+path = "04_primitive_types/primitive_types4.ml"
+topic = "04_primitive_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The unit type () represents "no meaningful value":
 - Used for side effects: print_endline "hi" returns ()
@@ -177,9 +233,12 @@ The unit type () represents "no meaningful value":
 - Similar to void in other languages
 """
 
-[[exercises]]
-name = "tuples1"
-dir = "05_tuples"
+[[exercise]]
+id = "tuples1"
+path = "05_tuples/tuples1.ml"
+topic = "05_tuples"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Tuples group multiple values:
   let pair = (1, "hello")
@@ -187,9 +246,12 @@ Tuples group multiple values:
 Tuples can contain values of different types.
 """
 
-[[exercises]]
-name = "tuples2"
-dir = "05_tuples"
+[[exercise]]
+id = "tuples2"
+path = "05_tuples/tuples2.ml"
+topic = "05_tuples"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Destructure tuples with pattern matching:
   let (x, y) = (1, 2)
@@ -199,18 +261,24 @@ For pairs, you can also use fst and snd:
   snd (1, 2)  (* returns 2 *)
 """
 
-[[exercises]]
-name = "tuples3"
-dir = "05_tuples"
+[[exercise]]
+id = "tuples3"
+path = "05_tuples/tuples3.ml"
+topic = "05_tuples"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functions can return tuples to return multiple values:
   let divide_with_remainder a b = (a / b, a mod b)
   let (quotient, remainder) = divide_with_remainder 10 3
 """
 
-[[exercises]]
-name = "records1"
-dir = "06_records"
+[[exercise]]
+id = "records1"
+path = "06_records/records1.ml"
+topic = "06_records"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Define a record type first:
   type person = { name : string; age : int }
@@ -218,9 +286,12 @@ Then create values:
   let alice = { name = "Alice"; age = 30 }
 """
 
-[[exercises]]
-name = "records2"
-dir = "06_records"
+[[exercise]]
+id = "records2"
+path = "06_records/records2.ml"
+topic = "06_records"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Access fields with dot notation:
   alice.name  (* "Alice" *)
@@ -228,9 +299,12 @@ Create updated copies with { ... with ... }:
   let older_alice = { alice with age = 31 }
 """
 
-[[exercises]]
-name = "records3"
-dir = "06_records"
+[[exercise]]
+id = "records3"
+path = "06_records/records3.ml"
+topic = "06_records"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Mutable record fields use the `mutable` keyword:
   type counter = { mutable count : int }
@@ -239,9 +313,12 @@ Update with <-:
   c.count <- c.count + 1
 """
 
-[[exercises]]
-name = "records4"
-dir = "06_records"
+[[exercise]]
+id = "records4"
+path = "06_records/records4.ml"
+topic = "06_records"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Records can be nested:
   type address = { street : string; city : string }
@@ -249,18 +326,24 @@ Records can be nested:
 Access nested fields: person.address.city
 """
 
-[[exercises]]
-name = "variants1"
-dir = "07_variants"
+[[exercise]]
+id = "variants1"
+path = "07_variants/variants1.ml"
+topic = "07_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Simple variants (enums) are defined with |:
   type color = Red | Green | Blue
 Constructors must start with uppercase.
 """
 
-[[exercises]]
-name = "variants2"
-dir = "07_variants"
+[[exercise]]
+id = "variants2"
+path = "07_variants/variants2.ml"
+topic = "07_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Variants can carry data:
   type shape =
@@ -271,9 +354,12 @@ Create values:
   let r = Rectangle (3.0, 4.0)
 """
 
-[[exercises]]
-name = "variants3"
-dir = "07_variants"
+[[exercise]]
+id = "variants3"
+path = "07_variants/variants3.ml"
+topic = "07_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Variants can be recursive (for trees):
   type tree =
@@ -282,9 +368,12 @@ Variants can be recursive (for trees):
 Create: Node (1, Leaf, Node (2, Leaf, Leaf))
 """
 
-[[exercises]]
-name = "variants4"
-dir = "07_variants"
+[[exercise]]
+id = "variants4"
+path = "07_variants/variants4.ml"
+topic = "07_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Polymorphic variants use backtick prefix:
   let color = `Red
@@ -292,9 +381,12 @@ Polymorphic variants use backtick prefix:
 They don't need predefined type declarations.
 """
 
-[[exercises]]
-name = "pattern_matching1"
-dir = "08_pattern_matching"
+[[exercise]]
+id = "pattern_matching1"
+path = "08_pattern_matching/pattern_matching1.ml"
+topic = "08_pattern_matching"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Match on variants:
   match color with
@@ -303,9 +395,12 @@ Match on variants:
   | Blue -> "blue"
 """
 
-[[exercises]]
-name = "pattern_matching2"
-dir = "08_pattern_matching"
+[[exercise]]
+id = "pattern_matching2"
+path = "08_pattern_matching/pattern_matching2.ml"
+topic = "08_pattern_matching"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Match on tuples:
   match pair with
@@ -315,9 +410,12 @@ Match on tuples:
   | (x, y) -> "elsewhere"
 """
 
-[[exercises]]
-name = "pattern_matching3"
-dir = "08_pattern_matching"
+[[exercise]]
+id = "pattern_matching3"
+path = "08_pattern_matching/pattern_matching3.ml"
+topic = "08_pattern_matching"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Guards add conditions with `when`:
   match x with
@@ -326,9 +424,12 @@ Guards add conditions with `when`:
   | n -> "positive"
 """
 
-[[exercises]]
-name = "pattern_matching4"
-dir = "08_pattern_matching"
+[[exercise]]
+id = "pattern_matching4"
+path = "08_pattern_matching/pattern_matching4.ml"
+topic = "08_pattern_matching"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The `as` pattern binds a name to the whole matched value:
   match list with
@@ -336,9 +437,12 @@ The `as` pattern binds a name to the whole matched value:
   | (head :: tail as whole) -> whole
 """
 
-[[exercises]]
-name = "pattern_matching5"
-dir = "08_pattern_matching"
+[[exercise]]
+id = "pattern_matching5"
+path = "08_pattern_matching/pattern_matching5.ml"
+topic = "08_pattern_matching"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 OCaml warns about non-exhaustive matches!
 Use _ as a wildcard to match anything:
@@ -351,9 +455,12 @@ Or use _ for catch-all:
   | _ -> "non-zero"
 """
 
-[[exercises]]
-name = "lists1"
-dir = "09_lists"
+[[exercise]]
+id = "lists1"
+path = "09_lists/lists1.ml"
+topic = "09_lists"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Lists are created with []:
   let numbers = [1; 2; 3]
@@ -361,9 +468,12 @@ Note: use semicolons, not commas!
 The :: operator prepends: 0 :: [1; 2]  (* [0; 1; 2] *)
 """
 
-[[exercises]]
-name = "lists2"
-dir = "09_lists"
+[[exercise]]
+id = "lists2"
+path = "09_lists/lists2.ml"
+topic = "09_lists"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Pattern match on lists:
   match list with
@@ -373,9 +483,12 @@ Pattern match on lists:
   | head :: tail -> "at least one"
 """
 
-[[exercises]]
-name = "lists3"
-dir = "09_lists"
+[[exercise]]
+id = "lists3"
+path = "09_lists/lists3.ml"
+topic = "09_lists"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 List.map transforms each element:
   List.map (fun x -> x * 2) [1; 2; 3]  (* [2; 4; 6] *)
@@ -383,9 +496,12 @@ List.filter keeps matching elements:
   List.filter (fun x -> x > 0) [-1; 2; -3; 4]  (* [2; 4] *)
 """
 
-[[exercises]]
-name = "lists4"
-dir = "09_lists"
+[[exercise]]
+id = "lists4"
+path = "09_lists/lists4.ml"
+topic = "09_lists"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 List.fold_left accumulates from left:
   List.fold_left (+) 0 [1; 2; 3]  (* 6 *)
@@ -393,9 +509,12 @@ List.fold_left accumulates from left:
 List.fold_right goes from right (less efficient).
 """
 
-[[exercises]]
-name = "lists5"
-dir = "09_lists"
+[[exercise]]
+id = "lists5"
+path = "09_lists/lists5.ml"
+topic = "09_lists"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Useful list patterns:
   List.concat [[1; 2]; [3; 4]]  (* [1; 2; 3; 4] *)
@@ -404,9 +523,12 @@ Useful list patterns:
   list1 @ list2  (* append lists *)
 """
 
-[[exercises]]
-name = "options1"
-dir = "10_options"
+[[exercise]]
+id = "options1"
+path = "10_options/options1.ml"
+topic = "10_options"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Option type represents optional values:
   type 'a option = None | Some of 'a
@@ -415,9 +537,12 @@ Use Some to wrap a value:
   let nothing = None
 """
 
-[[exercises]]
-name = "options2"
-dir = "10_options"
+[[exercise]]
+id = "options2"
+path = "10_options/options2.ml"
+topic = "10_options"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Pattern match on options:
   match opt with
@@ -425,9 +550,12 @@ Pattern match on options:
   | None -> "nothing"
 """
 
-[[exercises]]
-name = "options3"
-dir = "10_options"
+[[exercise]]
+id = "options3"
+path = "10_options/options3.ml"
+topic = "10_options"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Option module functions:
   Option.map (fun x -> x + 1) (Some 5)  (* Some 6 *)
@@ -435,9 +563,12 @@ Option module functions:
   Option.bind (Some 5) (fun x -> Some (x + 1))  (* Some 6 *)
 """
 
-[[exercises]]
-name = "options4"
-dir = "10_options"
+[[exercise]]
+id = "options4"
+path = "10_options/options4.ml"
+topic = "10_options"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Chain optional operations with Option.bind:
   let get_name id = ...  (* returns string option *)
@@ -446,9 +577,12 @@ Chain optional operations with Option.bind:
 Or use let* with Option binding operators.
 """
 
-[[exercises]]
-name = "results1"
-dir = "11_results"
+[[exercise]]
+id = "results1"
+path = "11_results/results1.ml"
+topic = "11_results"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Result type for error handling:
   type ('a, 'b) result = Ok of 'a | Error of 'b
@@ -458,9 +592,12 @@ Use Error for failure:
   Error "something went wrong"
 """
 
-[[exercises]]
-name = "results2"
-dir = "11_results"
+[[exercise]]
+id = "results2"
+path = "11_results/results2.ml"
+topic = "11_results"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Pattern match on results:
   match result with
@@ -468,9 +605,12 @@ Pattern match on results:
   | Error msg -> "error: " ^ msg
 """
 
-[[exercises]]
-name = "results3"
-dir = "11_results"
+[[exercise]]
+id = "results3"
+path = "11_results/results3.ml"
+topic = "11_results"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Result module functions:
   Result.map (fun x -> x + 1) (Ok 5)  (* Ok 6 *)
@@ -478,9 +618,12 @@ Result module functions:
   Result.bind (Ok 5) (fun x -> Ok (x + 1))
 """
 
-[[exercises]]
-name = "results4"
-dir = "11_results"
+[[exercise]]
+id = "results4"
+path = "11_results/results4.ml"
+topic = "11_results"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Convert between Option and Result:
   Option.to_result ~none:"missing" (Some 5)  (* Ok 5 *)
@@ -489,9 +632,12 @@ Convert between Option and Result:
   Result.to_option (Error "e")  (* None *)
 """
 
-[[exercises]]
-name = "modules1"
-dir = "12_modules"
+[[exercise]]
+id = "modules1"
+path = "12_modules/modules1.ml"
+topic = "12_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Define a module with `module`:
   module MyModule = struct
@@ -501,9 +647,12 @@ Define a module with `module`:
 Access with dot notation: MyModule.add 1 2
 """
 
-[[exercises]]
-name = "modules2"
-dir = "12_modules"
+[[exercise]]
+id = "modules2"
+path = "12_modules/modules2.ml"
+topic = "12_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Module signatures define the interface:
   module type S = sig
@@ -514,9 +663,12 @@ Apply to a module:
   module M : S = struct ... end
 """
 
-[[exercises]]
-name = "modules3"
-dir = "12_modules"
+[[exercise]]
+id = "modules3"
+path = "12_modules/modules3.ml"
+topic = "12_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Abstract types hide implementation:
   module type Stack = sig
@@ -526,9 +678,12 @@ Abstract types hide implementation:
   end
 """
 
-[[exercises]]
-name = "modules4"
-dir = "12_modules"
+[[exercise]]
+id = "modules4"
+path = "12_modules/modules4.ml"
+topic = "12_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 `open` brings module contents into scope:
   open List
@@ -537,9 +692,12 @@ hint = """
   include OtherModule
 """
 
-[[exercises]]
-name = "modules5"
-dir = "12_modules"
+[[exercise]]
+id = "modules5"
+path = "12_modules/modules5.ml"
+topic = "12_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Modules can be nested:
   module Outer = struct
@@ -550,9 +708,12 @@ Modules can be nested:
 Access: Outer.Inner.x
 """
 
-[[exercises]]
-name = "functors1"
-dir = "13_functors"
+[[exercise]]
+id = "functors1"
+path = "13_functors/functors1.ml"
+topic = "13_functors"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functors are functions from modules to modules:
   module F (M : sig val x : int end) = struct
@@ -560,18 +721,24 @@ Functors are functions from modules to modules:
   end
 """
 
-[[exercises]]
-name = "functors2"
-dir = "13_functors"
+[[exercise]]
+id = "functors2"
+path = "13_functors/functors2.ml"
+topic = "13_functors"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Apply a functor to create a module:
   module M = struct let x = 5 end
   module Result = F(M)  (* Result.y = 6 *)
 """
 
-[[exercises]]
-name = "functors3"
-dir = "13_functors"
+[[exercise]]
+id = "functors3"
+path = "13_functors/functors3.ml"
+topic = "13_functors"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Set and Map require comparison functions via functors:
   module IntSet = Set.Make(Int)
@@ -579,27 +746,36 @@ Set and Map require comparison functions via functors:
   module StringMap = Map.Make(String)
 """
 
-[[exercises]]
-name = "functors4"
-dir = "13_functors"
+[[exercise]]
+id = "functors4"
+path = "13_functors/functors4.ml"
+topic = "13_functors"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 First-class modules can be passed as values:
   let m = (module M : S)  (* pack module as value *)
   let module M = (val m : S) in ...  (* unpack *)
 """
 
-[[exercises]]
-name = "higher_order1"
-dir = "14_higher_order"
+[[exercise]]
+id = "higher_order1"
+path = "14_higher_order/higher_order1.ml"
+topic = "14_higher_order"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functions can take other functions as arguments:
   let apply_twice f x = f (f x)
   apply_twice (fun x -> x + 1) 5  (* 7 *)
 """
 
-[[exercises]]
-name = "higher_order2"
-dir = "14_higher_order"
+[[exercise]]
+id = "higher_order2"
+path = "14_higher_order/higher_order2.ml"
+topic = "14_higher_order"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functions can return other functions:
   let make_adder n = fun x -> x + n
@@ -607,9 +783,12 @@ Functions can return other functions:
   add5 10  (* 15 *)
 """
 
-[[exercises]]
-name = "higher_order3"
-dir = "14_higher_order"
+[[exercise]]
+id = "higher_order3"
+path = "14_higher_order/higher_order3.ml"
+topic = "14_higher_order"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Composition operators:
 - |> (pipe): x |> f is same as f x
@@ -618,9 +797,12 @@ Composition operators:
   print_endline @@ string_of_int @@ 5 + 3
 """
 
-[[exercises]]
-name = "higher_order4"
-dir = "14_higher_order"
+[[exercise]]
+id = "higher_order4"
+path = "14_higher_order/higher_order4.ml"
+topic = "14_higher_order"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Anonymous functions with `fun`:
   fun x -> x + 1
@@ -628,9 +810,12 @@ Anonymous functions with `fun`:
   List.map (fun s -> String.length s) ["a"; "bb"; "ccc"]
 """
 
-[[exercises]]
-name = "higher_order5"
-dir = "14_higher_order"
+[[exercise]]
+id = "higher_order5"
+path = "14_higher_order/higher_order5.ml"
+topic = "14_higher_order"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Currying: multi-argument functions are really chained single-argument functions.
   let add x y = x + y
@@ -639,9 +824,12 @@ Is equivalent to:
 So `add 5` returns a function waiting for y.
 """
 
-[[exercises]]
-name = "recursion1"
-dir = "15_recursion"
+[[exercise]]
+id = "recursion1"
+path = "15_recursion/recursion1.ml"
+topic = "15_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use `rec` for recursive functions:
   let rec factorial n =
@@ -649,9 +837,12 @@ Use `rec` for recursive functions:
     else n * factorial (n - 1)
 """
 
-[[exercises]]
-name = "recursion2"
-dir = "15_recursion"
+[[exercise]]
+id = "recursion2"
+path = "15_recursion/recursion2.ml"
+topic = "15_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Mutual recursion with `and`:
   let rec is_even n =
@@ -660,9 +851,12 @@ Mutual recursion with `and`:
     if n = 0 then false else is_even (n - 1)
 """
 
-[[exercises]]
-name = "recursion3"
-dir = "15_recursion"
+[[exercise]]
+id = "recursion3"
+path = "15_recursion/recursion3.ml"
+topic = "15_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Tail recursion: the recursive call is the last operation.
 Non-tail (stack overflow risk):
@@ -675,9 +869,12 @@ Tail-recursive (efficient):
     in aux 0 lst
 """
 
-[[exercises]]
-name = "recursion4"
-dir = "15_recursion"
+[[exercise]]
+id = "recursion4"
+path = "15_recursion/recursion4.ml"
+topic = "15_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Recursion on recursive data structures:
   let rec tree_sum = function
@@ -685,18 +882,24 @@ Recursion on recursive data structures:
     | Node (v, left, right) -> v + tree_sum left + tree_sum right
 """
 
-[[exercises]]
-name = "refs1"
-dir = "16_refs"
+[[exercise]]
+id = "refs1"
+path = "16_refs/refs1.ml"
+topic = "16_refs"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Refs are mutable cells:
   let r = ref 5  (* create ref with initial value 5 *)
   !r  (* dereference: get the value, returns 5 *)
 """
 
-[[exercises]]
-name = "refs2"
-dir = "16_refs"
+[[exercise]]
+id = "refs2"
+path = "16_refs/refs2.ml"
+topic = "16_refs"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Update a ref with :=
   let r = ref 5
@@ -704,9 +907,12 @@ Update a ref with :=
   !r  (* returns 10 *)
 """
 
-[[exercises]]
-name = "refs3"
-dir = "16_refs"
+[[exercise]]
+id = "refs3"
+path = "16_refs/refs3.ml"
+topic = "16_refs"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use refs sparingly - prefer immutable values.
 Good uses for refs:
@@ -715,9 +921,12 @@ Good uses for refs:
 - Implementing imperative algorithms
 """
 
-[[exercises]]
-name = "exceptions1"
-dir = "17_exceptions"
+[[exercise]]
+id = "exceptions1"
+path = "17_exceptions/exceptions1.ml"
+topic = "17_exceptions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Raise built-in exceptions:
   raise Not_found
@@ -726,9 +935,12 @@ Raise built-in exceptions:
 Or use failwith: failwith "error message"
 """
 
-[[exercises]]
-name = "exceptions2"
-dir = "17_exceptions"
+[[exercise]]
+id = "exceptions2"
+path = "17_exceptions/exceptions2.ml"
+topic = "17_exceptions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Handle exceptions with try/with:
   try
@@ -738,9 +950,12 @@ Handle exceptions with try/with:
   | Failure msg -> "failed: " ^ msg
 """
 
-[[exercises]]
-name = "exceptions3"
-dir = "17_exceptions"
+[[exercise]]
+id = "exceptions3"
+path = "17_exceptions/exceptions3.ml"
+topic = "17_exceptions"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Define custom exceptions:
   exception My_error
@@ -750,9 +965,12 @@ Raise them:
   raise (Error_with_data ("oops", 42))
 """
 
-[[exercises]]
-name = "quiz1"
-dir = "quizzes"
+[[exercise]]
+id = "quiz1"
+path = "quizzes/quiz1.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers variables, functions, and conditionals.
 Review:
@@ -761,9 +979,12 @@ Review:
 - if/then/else expressions
 """
 
-[[exercises]]
-name = "quiz2"
-dir = "quizzes"
+[[exercise]]
+id = "quiz2"
+path = "quizzes/quiz2.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers data structures and pattern matching.
 Review:
@@ -772,9 +993,12 @@ Review:
 - Pattern matching syntax and guards
 """
 
-[[exercises]]
-name = "quiz3"
-dir = "quizzes"
+[[exercise]]
+id = "quiz3"
+path = "quizzes/quiz3.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers modules and higher-order programming.
 Review:
@@ -783,9 +1007,12 @@ Review:
 - Higher-order functions and composition
 """
 
-[[exercises]]
-name = "arrays1"
-dir = "18_arrays"
+[[exercise]]
+id = "arrays1"
+path = "18_arrays/arrays1.ml"
+topic = "18_arrays"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Arrays are mutable, fixed-size collections:
   let arr = [| 1; 2; 3 |]  (* create array *)
@@ -793,18 +1020,24 @@ Arrays are mutable, fixed-size collections:
   Array.length arr  (* get length *)
 """
 
-[[exercises]]
-name = "arrays2"
-dir = "18_arrays"
+[[exercise]]
+id = "arrays2"
+path = "18_arrays/arrays2.ml"
+topic = "18_arrays"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Arrays are mutable - update elements with <-:
   let arr = [| 1; 2; 3 |]
   arr.(0) <- 10  (* set first element to 10 *)
 """
 
-[[exercises]]
-name = "arrays3"
-dir = "18_arrays"
+[[exercise]]
+id = "arrays3"
+path = "18_arrays/arrays3.ml"
+topic = "18_arrays"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Array module functions:
   Array.map (fun x -> x * 2) arr  (* map over array *)
@@ -813,9 +1046,12 @@ Array module functions:
   Array.init 5 (fun i -> i)  (* create [| 0; 1; 2; 3; 4 |] *)
 """
 
-[[exercises]]
-name = "imperative1"
-dir = "19_imperative"
+[[exercise]]
+id = "imperative1"
+path = "19_imperative/imperative1.ml"
+topic = "19_imperative"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 For loops iterate over a range:
   for i = 0 to 4 do
@@ -825,9 +1061,12 @@ Use `downto` for descending:
   for i = 4 downto 0 do ... done
 """
 
-[[exercises]]
-name = "imperative2"
-dir = "19_imperative"
+[[exercise]]
+id = "imperative2"
+path = "19_imperative/imperative2.ml"
+topic = "19_imperative"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 While loops repeat until condition is false:
   while !counter < 10 do
@@ -836,9 +1075,12 @@ While loops repeat until condition is false:
 The condition is checked before each iteration.
 """
 
-[[exercises]]
-name = "imperative3"
-dir = "19_imperative"
+[[exercise]]
+id = "imperative3"
+path = "19_imperative/imperative3.ml"
+topic = "19_imperative"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The ; operator sequences expressions:
   expr1; expr2; expr3  (* evaluates all, returns expr3 *)
@@ -849,9 +1091,12 @@ Use begin...end to group sequences:
   end
 """
 
-[[exercises]]
-name = "let_operators1"
-dir = "20_let_operators"
+[[exercise]]
+id = "let_operators1"
+path = "20_let_operators/let_operators1.ml"
+topic = "20_let_operators"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Define let* for monadic binding:
   let ( let* ) = Option.bind
@@ -863,9 +1108,12 @@ Then use it:
   return (x + y)
 """
 
-[[exercises]]
-name = "let_operators2"
-dir = "20_let_operators"
+[[exercise]]
+id = "let_operators2"
+path = "20_let_operators/let_operators2.ml"
+topic = "20_let_operators"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 let* works with any monad (Option, Result, etc.):
   let ( let* ) = Result.bind
@@ -877,9 +1125,12 @@ Chain operations that might fail:
   return validated
 """
 
-[[exercises]]
-name = "io1"
-dir = "21_io"
+[[exercise]]
+id = "io1"
+path = "21_io/io1.ml"
+topic = "21_io"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Write to a file:
   let oc = open_out "file.txt" in
@@ -889,9 +1140,12 @@ Write to a file:
 Always close channels when done!
 """
 
-[[exercises]]
-name = "io2"
-dir = "21_io"
+[[exercise]]
+id = "io2"
+path = "21_io/io2.ml"
+topic = "21_io"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Read a file line by line:
   let ic = open_in "file.txt" in
@@ -901,9 +1155,12 @@ Read a file line by line:
 Use a loop with exception handling to read all lines.
 """
 
-[[exercises]]
-name = "printf1"
-dir = "22_printf"
+[[exercise]]
+id = "printf1"
+path = "22_printf/printf1.ml"
+topic = "22_printf"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Printf.sprintf creates formatted strings:
   Printf.sprintf "Name: %s" name  (* string *)
@@ -912,9 +1169,12 @@ Printf.sprintf creates formatted strings:
   Printf.sprintf "%s is %d" name age  (* multiple *)
 """
 
-[[exercises]]
-name = "printf2"
-dir = "22_printf"
+[[exercise]]
+id = "printf2"
+path = "22_printf/printf2.ml"
+topic = "22_printf"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Printf format specifiers:
   %05d  - pad with zeros to 5 digits
@@ -925,9 +1185,12 @@ Printf format specifiers:
   %X    - uppercase hex
 """
 
-[[exercises]]
-name = "strings1"
-dir = "23_strings"
+[[exercise]]
+id = "strings1"
+path = "23_strings/strings1.ml"
+topic = "23_strings"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Basic String module functions:
   String.length "abc"  (* 3 *)
@@ -937,9 +1200,12 @@ Basic String module functions:
   String.get "abc" 0  (* 'a' *)
 """
 
-[[exercises]]
-name = "strings2"
-dir = "23_strings"
+[[exercise]]
+id = "strings2"
+path = "23_strings/strings2.ml"
+topic = "23_strings"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Buffer is used for efficient string building:
   let buf = Buffer.create 16 in
@@ -949,9 +1215,12 @@ Buffer is used for efficient string building:
   Buffer.clear buf  (* empties the buffer *)
 """
 
-[[exercises]]
-name = "strings3"
-dir = "23_strings"
+[[exercise]]
+id = "strings3"
+path = "23_strings/strings3.ml"
+topic = "23_strings"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 String splitting and searching:
   String.split_on_char ',' "a,b,c"  (* ["a"; "b"; "c"] *)
@@ -961,9 +1230,12 @@ String splitting and searching:
   String.ends_with ~suffix:"lo" "hello"  (* true *)
 """
 
-[[exercises]]
-name = "sequences1"
-dir = "24_sequences"
+[[exercise]]
+id = "sequences1"
+path = "24_sequences/sequences1.ml"
+topic = "24_sequences"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Create sequences:
   Seq.empty  (* empty sequence *)
@@ -973,9 +1245,12 @@ Create sequences:
   List.of_seq seq  (* convert seq to list *)
 """
 
-[[exercises]]
-name = "sequences2"
-dir = "24_sequences"
+[[exercise]]
+id = "sequences2"
+path = "24_sequences/sequences2.ml"
+topic = "24_sequences"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Transform sequences:
   Seq.map (fun x -> x * 2) seq  (* transform each element *)
@@ -985,9 +1260,12 @@ Transform sequences:
   Seq.drop 3 seq  (* skip first 3 *)
 """
 
-[[exercises]]
-name = "sequences3"
-dir = "24_sequences"
+[[exercise]]
+id = "sequences3"
+path = "24_sequences/sequences3.ml"
+topic = "24_sequences"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Generate sequences:
   Seq.unfold (fun n -> if n > 3 then None else Some (n, n+1)) 1
@@ -996,9 +1274,12 @@ Generate sequences:
 Use Seq.take to limit infinite sequences.
 """
 
-[[exercises]]
-name = "hashtables1"
-dir = "25_hashtables"
+[[exercise]]
+id = "hashtables1"
+path = "25_hashtables/hashtables1.ml"
+topic = "25_hashtables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Hash tables are mutable key-value stores:
   let tbl = Hashtbl.create 16 in
@@ -1007,9 +1288,12 @@ Hash tables are mutable key-value stores:
   Hashtbl.length tbl  (* number of bindings *)
 """
 
-[[exercises]]
-name = "hashtables2"
-dir = "25_hashtables"
+[[exercise]]
+id = "hashtables2"
+path = "25_hashtables/hashtables2.ml"
+topic = "25_hashtables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Hash table operations:
   Hashtbl.replace tbl key new_value  (* update existing key *)
@@ -1018,9 +1302,12 @@ Hash table operations:
   Hashtbl.find_opt tbl key  (* returns option instead of raising *)
 """
 
-[[exercises]]
-name = "hashtables3"
-dir = "25_hashtables"
+[[exercise]]
+id = "hashtables3"
+path = "25_hashtables/hashtables3.ml"
+topic = "25_hashtables"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Hash table iteration and conversion:
   Hashtbl.iter (fun k v -> ...) tbl  (* iterate over all bindings *)
@@ -1028,9 +1315,12 @@ Hash table iteration and conversion:
   Hashtbl.of_seq seq  (* create from sequence of pairs *)
 """
 
-[[exercises]]
-name = "maps1"
-dir = "26_maps"
+[[exercise]]
+id = "maps1"
+path = "26_maps/maps1.ml"
+topic = "26_maps"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Maps are functional (immutable) sorted dictionaries:
   module StringMap = Map.Make(String)
@@ -1041,9 +1331,12 @@ Maps are functional (immutable) sorted dictionaries:
   StringMap.cardinal map  (* number of bindings *)
 """
 
-[[exercises]]
-name = "maps2"
-dir = "26_maps"
+[[exercise]]
+id = "maps2"
+path = "26_maps/maps2.ml"
+topic = "26_maps"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Map transformation:
   IntMap.map f m  (* apply f to all values *)
@@ -1052,9 +1345,12 @@ Map transformation:
   IntMap.find_opt key m  (* returns option *)
 """
 
-[[exercises]]
-name = "maps3"
-dir = "26_maps"
+[[exercise]]
+id = "maps3"
+path = "26_maps/maps3.ml"
+topic = "26_maps"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Map folding and conversion:
   StringMap.fold (fun key value acc -> ...) map init
@@ -1063,9 +1359,12 @@ Map folding and conversion:
 Note: fold iterates in key order (ascending).
 """
 
-[[exercises]]
-name = "poly_variants1"
-dir = "27_polymorphic_variants"
+[[exercise]]
+id = "poly_variants1"
+path = "27_polymorphic_variants/poly_variants1.ml"
+topic = "27_polymorphic_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Polymorphic variants use backtick prefix:
   `Red, `Green, `Blue
@@ -1076,9 +1375,12 @@ They don't need type declarations:
     | `Blue -> "blue"
 """
 
-[[exercises]]
-name = "poly_variants2"
-dir = "27_polymorphic_variants"
+[[exercise]]
+id = "poly_variants2"
+path = "27_polymorphic_variants/poly_variants2.ml"
+topic = "27_polymorphic_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Polymorphic variant types can be composed:
   type primary = [ `Red | `Green | `Blue ]
@@ -1089,9 +1391,12 @@ Use #type_name in patterns to match a subtype:
   | `Yellow -> ...
 """
 
-[[exercises]]
-name = "poly_variants3"
-dir = "27_polymorphic_variants"
+[[exercise]]
+id = "poly_variants3"
+path = "27_polymorphic_variants/poly_variants3.ml"
+topic = "27_polymorphic_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Polymorphic variants can carry data:
   `Circle 5.0
@@ -1103,9 +1408,12 @@ Match them just like regular variants:
   | `Rect (w, h) -> ...
 """
 
-[[exercises]]
-name = "gadt1"
-dir = "28_gadt"
+[[exercise]]
+id = "gadt1"
+path = "28_gadt/gadt1.ml"
+topic = "28_gadt"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 GADTs (Generalized Algebraic Data Types) encode type info in constructors:
   type _ expr =
@@ -1116,9 +1424,12 @@ The return type varies per constructor.
 Use `let rec eval : type a. a expr -> a = function` for polymorphic recursion.
 """
 
-[[exercises]]
-name = "gadt2"
-dir = "28_gadt"
+[[exercise]]
+id = "gadt2"
+path = "28_gadt/gadt2.ml"
+topic = "28_gadt"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 GADTs can encode type-safe heterogeneous structures:
   type _ hlist =
@@ -1132,9 +1443,12 @@ For sprintf, use an accumulator string with a recursive helper:
 Each format constructor adds a function parameter to the result type.
 """
 
-[[exercises]]
-name = "lazy1"
-dir = "29_lazy"
+[[exercise]]
+id = "lazy1"
+path = "29_lazy/lazy1.ml"
+topic = "29_lazy"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Lazy values defer computation until forced:
   let x = lazy (expensive_computation ()) in
@@ -1143,9 +1457,12 @@ Lazy values defer computation until forced:
   Lazy.is_val x  (* true if already forced *)
 """
 
-[[exercises]]
-name = "lazy2"
-dir = "29_lazy"
+[[exercise]]
+id = "lazy2"
+path = "29_lazy/lazy2.ml"
+topic = "29_lazy"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Lazy enables infinite data structures:
   type 'a stream = Cons of 'a * 'a stream Lazy.t
@@ -1153,9 +1470,12 @@ Lazy enables infinite data structures:
 Force the tail with Lazy.force to traverse.
 """
 
-[[exercises]]
-name = "quiz4"
-dir = "quizzes"
+[[exercise]]
+id = "quiz4"
+path = "quizzes/quiz4.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers strings, data structures, and advanced types.
 Review:
@@ -1166,9 +1486,12 @@ Review:
 - Hashtbl for memoization
 """
 
-[[exercises]]
-name = "sets1"
-dir = "30_sets"
+[[exercise]]
+id = "sets1"
+path = "30_sets/sets1.ml"
+topic = "30_sets"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Sets are functional (immutable) collections of unique elements:
   module IntSet = Set.Make(Int)
@@ -1179,9 +1502,12 @@ Sets are functional (immutable) collections of unique elements:
   IntSet.elements set  (* sorted list of elements *)
 """
 
-[[exercises]]
-name = "sets2"
-dir = "30_sets"
+[[exercise]]
+id = "sets2"
+path = "30_sets/sets2.ml"
+topic = "30_sets"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Set operations:
   IntSet.union a b  (* elements in a or b *)
@@ -1191,9 +1517,12 @@ Set operations:
   IntSet.disjoint a b  (* true if a and b share no elements *)
 """
 
-[[exercises]]
-name = "sets3"
-dir = "30_sets"
+[[exercise]]
+id = "sets3"
+path = "30_sets/sets3.ml"
+topic = "30_sets"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Transform and query sets:
   StringSet.map f s  (* apply f to each element *)
@@ -1203,9 +1532,12 @@ Transform and query sets:
   StringSet.for_all pred s  (* true if all elements match *)
 """
 
-[[exercises]]
-name = "objects1"
-dir = "31_objects"
+[[exercise]]
+id = "objects1"
+path = "31_objects/objects1.ml"
+topic = "31_objects"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Immediate objects are created inline:
   let obj = object
@@ -1216,9 +1548,12 @@ Immediate objects are created inline:
 Call methods with #: obj#get_x
 """
 
-[[exercises]]
-name = "objects2"
-dir = "31_objects"
+[[exercise]]
+id = "objects2"
+path = "31_objects/objects2.ml"
+topic = "31_objects"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Classes define reusable object templates:
   class counter init = object
@@ -1231,9 +1566,12 @@ Inherit with: inherit parent_class args
 Override with: method! name = ...
 """
 
-[[exercises]]
-name = "objects3"
-dir = "31_objects"
+[[exercise]]
+id = "objects3"
+path = "31_objects/objects3.ml"
+topic = "31_objects"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Object types use structural subtyping:
   type shape = < area : float; describe : string >
@@ -1245,9 +1583,12 @@ Create objects as functions:
   end
 """
 
-[[exercises]]
-name = "bytes1"
-dir = "32_bytes"
+[[exercise]]
+id = "bytes1"
+path = "32_bytes/bytes1.ml"
+topic = "32_bytes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Bytes are mutable sequences of characters:
   Bytes.make 5 'x'  (* create 5 bytes all 'x' *)
@@ -1257,9 +1598,12 @@ Bytes are mutable sequences of characters:
   Bytes.of_string s  (* create mutable copy of string *)
 """
 
-[[exercises]]
-name = "bytes2"
-dir = "32_bytes"
+[[exercise]]
+id = "bytes2"
+path = "32_bytes/bytes2.ml"
+topic = "32_bytes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Bytes module operations:
   Bytes.blit src src_pos dst dst_pos len  (* copy bytes between buffers *)
@@ -1269,9 +1613,12 @@ Bytes module operations:
   Bytes.create n  (* create n uninitialized bytes *)
 """
 
-[[exercises]]
-name = "phantom_types1"
-dir = "33_phantom_types"
+[[exercise]]
+id = "phantom_types1"
+path = "33_phantom_types/phantom_types1.ml"
+topic = "33_phantom_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Phantom types add type-level tags without runtime cost:
   type meters
@@ -1282,9 +1629,12 @@ Phantom types add type-level tags without runtime cost:
 The type parameter prevents mixing different units.
 """
 
-[[exercises]]
-name = "phantom_types2"
-dir = "33_phantom_types"
+[[exercise]]
+id = "phantom_types2"
+path = "33_phantom_types/phantom_types2.ml"
+topic = "33_phantom_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Phantom types can encode state machines:
   type locked
@@ -1295,9 +1645,12 @@ Phantom types can encode state machines:
 Only unlocked doors can be opened - enforced at compile time!
 """
 
-[[exercises]]
-name = "mutual_recursion1"
-dir = "34_mutual_recursion"
+[[exercise]]
+id = "mutual_recursion1"
+path = "34_mutual_recursion/mutual_recursion1.ml"
+topic = "34_mutual_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Mutually recursive functions use `and`:
   let rec is_even n =
@@ -1307,9 +1660,12 @@ Mutually recursive functions use `and`:
 Both functions can call each other.
 """
 
-[[exercises]]
-name = "mutual_recursion2"
-dir = "34_mutual_recursion"
+[[exercise]]
+id = "mutual_recursion2"
+path = "34_mutual_recursion/mutual_recursion2.ml"
+topic = "34_mutual_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Build an expression evaluator with recursive types:
   type expr = Num of int | Add of expr * expr | ...
@@ -1321,9 +1677,12 @@ Build an expression evaluator with recursive types:
     | Let (name, value, body) -> eval ((name, eval env value) :: env) body
 """
 
-[[exercises]]
-name = "error_handling1"
-dir = "35_error_handling"
+[[exercise]]
+id = "error_handling1"
+path = "35_error_handling/error_handling1.ml"
+topic = "35_error_handling"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Convert between error strategies:
   Option -> Result: match opt with Some x -> Ok x | None -> Error msg
@@ -1332,9 +1691,12 @@ Convert between error strategies:
 Use pattern matching on each type to convert.
 """
 
-[[exercises]]
-name = "error_handling2"
-dir = "35_error_handling"
+[[exercise]]
+id = "error_handling2"
+path = "35_error_handling/error_handling2.ml"
+topic = "35_error_handling"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Chain error-prone operations with let*:
   let ( let* ) = Result.bind
@@ -1346,9 +1708,12 @@ Each let* short-circuits on Error.
 For lists: fold with let* to accumulate results.
 """
 
-[[exercises]]
-name = "quiz5"
-dir = "quizzes"
+[[exercise]]
+id = "quiz5"
+path = "quizzes/quiz5.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers sets, objects, bytes, and error handling.
 Review:
@@ -1358,9 +1723,12 @@ Review:
 - Result chaining with let*
 """
 
-[[exercises]]
-name = "closures1"
-dir = "36_closures"
+[[exercise]]
+id = "closures1"
+path = "36_closures/closures1.ml"
+topic = "36_closures"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Closures capture their environment:
   let make_adder n = fun x -> n + x
@@ -1372,9 +1740,12 @@ Closures can capture mutable state too:
     fun () -> incr n; !n
 """
 
-[[exercises]]
-name = "closures2"
-dir = "36_closures"
+[[exercise]]
+id = "closures2"
+path = "36_closures/closures2.ml"
+topic = "36_closures"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Closures as iterators:
 - Return a function that maintains internal state
@@ -1383,9 +1754,12 @@ Closures as iterators:
 Use `ref` for mutable state inside the closure.
 """
 
-[[exercises]]
-name = "closures3"
-dir = "36_closures"
+[[exercise]]
+id = "closures3"
+path = "36_closures/closures3.ml"
+topic = "36_closures"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Memoization caches function results:
   let memoize f =
@@ -1397,9 +1771,12 @@ For recursive memoization, use an open-recursive style:
   let memo_rec f = ... fun x -> f memoized x
 """
 
-[[exercises]]
-name = "applicatives1"
-dir = "37_applicatives"
+[[exercise]]
+id = "applicatives1"
+path = "37_applicatives/applicatives1.ml"
+topic = "37_applicatives"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 let+ maps a function over a wrapped value:
   let ( let+ ) o f = Option.map f o
@@ -1407,9 +1784,12 @@ let+ maps a function over a wrapped value:
 It's like let* but the body returns an unwrapped value.
 """
 
-[[exercises]]
-name = "applicatives2"
-dir = "37_applicatives"
+[[exercise]]
+id = "applicatives2"
+path = "37_applicatives/applicatives2.ml"
+topic = "37_applicatives"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 and+ combines multiple wrapped values:
   let ( and+ ) a b = match (a, b) with
@@ -1419,9 +1799,12 @@ Use with let+:
   let+ x = Some 1 and+ y = Some 2 in x + y  (* Some 3 *)
 """
 
-[[exercises]]
-name = "queues1"
-dir = "38_queues_stacks"
+[[exercise]]
+id = "queues1"
+path = "38_queues_stacks/queues1.ml"
+topic = "38_queues_stacks"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Queue is a FIFO (first-in, first-out) data structure:
   let q = Queue.create () in
@@ -1432,9 +1815,12 @@ Queue is a FIFO (first-in, first-out) data structure:
   Queue.iter f q  (* iterate over elements *)
 """
 
-[[exercises]]
-name = "stacks1"
-dir = "38_queues_stacks"
+[[exercise]]
+id = "stacks1"
+path = "38_queues_stacks/stacks1.ml"
+topic = "38_queues_stacks"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Stack is a LIFO (last-in, first-out) data structure:
   let s = Stack.create () in
@@ -1445,9 +1831,12 @@ Stack is a LIFO (last-in, first-out) data structure:
   Stack.iter f s  (* iterate from top to bottom *)
 """
 
-[[exercises]]
-name = "format1"
-dir = "39_format"
+[[exercise]]
+id = "format1"
+path = "39_format/format1.ml"
+topic = "39_format"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Format.asprintf formats strings (like Printf.sprintf but more powerful):
   Format.asprintf "Hello, %s!" "world"
@@ -1459,9 +1848,12 @@ For lists, use %a with Format.pp_print_list:
     [1; 2; 3]
 """
 
-[[exercises]]
-name = "format2"
-dir = "39_format"
+[[exercise]]
+id = "format2"
+path = "39_format/format2.ml"
+topic = "39_format"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Write custom pretty printers with type: Format.formatter -> 'a -> unit
   let pp_point fmt p =
@@ -1470,9 +1862,12 @@ Use %a to embed custom printers:
   Format.fprintf fmt "Circle(center=%a)" pp_point center
 """
 
-[[exercises]]
-name = "type_annotations1"
-dir = "40_type_annotations"
+[[exercise]]
+id = "type_annotations1"
+path = "40_type_annotations/type_annotations1.ml"
+topic = "40_type_annotations"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Type aliases give names to existing types:
   type name = string
@@ -1482,9 +1877,12 @@ Parameterized types take type variables:
   type ('a, 'b) either = Left of 'a | Right of 'b
 """
 
-[[exercises]]
-name = "type_annotations2"
-dir = "40_type_annotations"
+[[exercise]]
+id = "type_annotations2"
+path = "40_type_annotations/type_annotations2.ml"
+topic = "40_type_annotations"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Locally abstract types with (type a):
   let show_any (type a) (show : a -> string) (x : a) = show x
@@ -1493,9 +1891,12 @@ First-class modules with type constraints:
   let show_value (type a) (module S : Showable with type t = a) x = S.show x
 """
 
-[[exercises]]
-name = "type_annotations3"
-dir = "40_type_annotations"
+[[exercise]]
+id = "type_annotations3"
+path = "40_type_annotations/type_annotations3.ml"
+topic = "40_type_annotations"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Object subtyping uses :> for coercion:
   let p : printable = (my_object :> printable)
@@ -1503,9 +1904,12 @@ The target type must be a supertype (fewer methods).
 This lets you store different object types in the same list.
 """
 
-[[exercises]]
-name = "quiz6"
-dir = "quizzes"
+[[exercise]]
+id = "quiz6"
+path = "quizzes/quiz6.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers closures, applicatives, data structures, and types.
 Review:
@@ -1515,9 +1919,12 @@ Review:
 - Existential types with records
 """
 
-[[exercises]]
-name = "local_opens1"
-dir = "41_local_opens"
+[[exercise]]
+id = "local_opens1"
+path = "41_local_opens/local_opens1.ml"
+topic = "41_local_opens"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Local open with Module.( ... ):
   StringMap.(empty |> add "key" 5 |> add "key2" 10)
@@ -1526,9 +1933,12 @@ Local open with let open:
 Both bring module contents into a limited scope.
 """
 
-[[exercises]]
-name = "local_opens2"
-dir = "41_local_opens"
+[[exercise]]
+id = "local_opens2"
+path = "41_local_opens/local_opens2.ml"
+topic = "41_local_opens"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use local opens in expressions:
   IntSet.(union a b |> diff c)
@@ -1536,9 +1946,12 @@ Use local opens in expressions:
 Local opens keep code concise without polluting the global namespace.
 """
 
-[[exercises]]
-name = "tail_recursion1"
-dir = "42_tail_recursion"
+[[exercise]]
+id = "tail_recursion1"
+path = "42_tail_recursion/tail_recursion1.ml"
+topic = "42_tail_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The accumulator pattern makes recursion tail-recursive:
   let length lst =
@@ -1550,9 +1963,12 @@ The recursive call is the last operation (tail position).
 For map, accumulate results reversed, then List.rev at the end.
 """
 
-[[exercises]]
-name = "tail_recursion2"
-dir = "42_tail_recursion"
+[[exercise]]
+id = "tail_recursion2"
+path = "42_tail_recursion/tail_recursion2.ml"
+topic = "42_tail_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Tail-recursive flatten:
   let rec aux acc = function
@@ -1562,9 +1978,12 @@ Tail-recursive flatten:
 For partition: maintain two accumulators (yes, no), reverse both at the end.
 """
 
-[[exercises]]
-name = "tail_recursion3"
-dir = "42_tail_recursion"
+[[exercise]]
+id = "tail_recursion3"
+path = "42_tail_recursion/tail_recursion3.ml"
+topic = "42_tail_recursion"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 For tree traversal without recursion, use an explicit work list:
   let rec aux acc = function
@@ -1574,9 +1993,12 @@ For tree traversal without recursion, use an explicit work list:
 For in-order traversal, push items in right-self-left order.
 """
 
-[[exercises]]
-name = "functorial_design1"
-dir = "43_functorial_design"
+[[exercise]]
+id = "functorial_design1"
+path = "43_functorial_design/functorial_design1.ml"
+topic = "43_functorial_design"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Design a sorted list using a functor over Comparable:
   module SortedList (C : Comparable) = struct
@@ -1586,9 +2008,12 @@ Design a sorted list using a functor over Comparable:
 Use C.compare to decide where to insert: < 0 means before, = 0 means duplicate.
 """
 
-[[exercises]]
-name = "functorial_design2"
-dir = "43_functorial_design"
+[[exercise]]
+id = "functorial_design2"
+path = "43_functorial_design/functorial_design2.ml"
+topic = "43_functorial_design"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Functors can add behavior to existing modules:
   module WithLogging (S : KV_Store) = struct
@@ -1598,9 +2023,12 @@ Functors can add behavior to existing modules:
 This is the decorator pattern at the module level.
 """
 
-[[exercises]]
-name = "cps1"
-dir = "44_cps"
+[[exercise]]
+id = "cps1"
+path = "44_cps/cps1.ml"
+topic = "44_cps"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 In CPS, every function takes an extra argument `k` (the continuation):
   let add_cps x y k = k (x + y)
@@ -1609,9 +2037,12 @@ Chain operations by nesting continuations:
 For fold_cps: f takes acc, element, and a continuation.
 """
 
-[[exercises]]
-name = "cps2"
-dir = "44_cps"
+[[exercise]]
+id = "cps2"
+path = "44_cps/cps2.ml"
+topic = "44_cps"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 CPS enables early exit and backtracking:
   let rec find_cps pred lst ~on_found ~on_missing =
@@ -1622,9 +2053,12 @@ CPS enables early exit and backtracking:
 For trees: search left, with on_missing continuing to search right.
 """
 
-[[exercises]]
-name = "extensible_variants1"
-dir = "45_extensible_variants"
+[[exercise]]
+id = "extensible_variants1"
+path = "45_extensible_variants/extensible_variants1.ml"
+topic = "45_extensible_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Extensible variant types can be extended after definition:
   type event = ..
@@ -1634,9 +2068,12 @@ Match with a catch-all _ case since new constructors can be added.
 New constructors can be added anywhere, even in different modules.
 """
 
-[[exercises]]
-name = "extensible_variants2"
-dir = "45_extensible_variants"
+[[exercise]]
+id = "extensible_variants2"
+path = "45_extensible_variants/extensible_variants2.ml"
+topic = "45_extensible_variants"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Extensible variants work with GADTs:
   type _ command = ..
@@ -1646,9 +2083,12 @@ Handle commands with a record of polymorphic function:
   type handler = { handle : 'a. 'a command -> 'a option }
 """
 
-[[exercises]]
-name = "monads1"
-dir = "46_monads"
+[[exercise]]
+id = "monads1"
+path = "46_monads/monads1.ml"
+topic = "46_monads"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The Writer monad collects a log alongside computation:
   type 'a t = 'a * string list
@@ -1658,9 +2098,12 @@ The Writer monad collects a log alongside computation:
 Use let* to chain operations that produce log entries.
 """
 
-[[exercises]]
-name = "monads2"
-dir = "46_monads"
+[[exercise]]
+id = "monads2"
+path = "46_monads/monads2.ml"
+topic = "46_monads"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 The State monad threads state through computation:
   type ('s, 'a) t = 's -> 'a * 's
@@ -1671,9 +2114,12 @@ The State monad threads state through computation:
 Run with: State.run program initial_state
 """
 
-[[exercises]]
-name = "quiz7"
-dir = "quizzes"
+[[exercise]]
+id = "quiz7"
+path = "quizzes/quiz7.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers tail recursion, CPS, extensible variants, and monads.
 Review:
@@ -1683,9 +2129,12 @@ Review:
 - Option monad for chained lookups
 """
 
-[[exercises]]
-name = "effect_handlers1"
-dir = "47_effect_handlers"
+[[exercise]]
+id = "effect_handlers1"
+path = "47_effect_handlers/effect_handlers1.ml"
+topic = "47_effect_handlers"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Declare an effect as an extension of Effect.t:
   type _ Effect.t += Read_env : string -> string option Effect.t
@@ -1697,9 +2146,12 @@ Handle it with Effect.Deep:
   | effect (Read_env key), k -> continue k (lookup key)
 """
 
-[[exercises]]
-name = "effect_handlers2"
-dir = "47_effect_handlers"
+[[exercise]]
+id = "effect_handlers2"
+path = "47_effect_handlers/effect_handlers2.ml"
+topic = "47_effect_handlers"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Model nondeterministic choice with an effect:
   type _ Effect.t += Choose : int list -> int Effect.t
@@ -1710,9 +2162,12 @@ Handle by selecting one element and resuming:
 This lets the same computation run under different strategies.
 """
 
-[[exercises]]
-name = "domains_atomics1"
-dir = "48_domains_atomics"
+[[exercise]]
+id = "domains_atomics1"
+path = "48_domains_atomics/domains_atomics1.ml"
+topic = "48_domains_atomics"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use Atomic for safe shared mutable state across domains:
   let c = Atomic.make 0
@@ -1723,9 +2178,12 @@ Wait for completion with:
   Domain.join d
 """
 
-[[exercises]]
-name = "domains_atomics2"
-dir = "48_domains_atomics"
+[[exercise]]
+id = "domains_atomics2"
+path = "48_domains_atomics/domains_atomics2.ml"
+topic = "48_domains_atomics"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 For lock-free max updates, use CAS in a retry loop:
   let cur = Atomic.get cell in
@@ -1735,9 +2193,12 @@ For lock-free max updates, use CAS in a retry loop:
 Run updates in parallel domains and join them all.
 """
 
-[[exercises]]
-name = "recursive_modules1"
-dir = "49_recursive_modules"
+[[exercise]]
+id = "recursive_modules1"
+path = "49_recursive_modules/recursive_modules1.ml"
+topic = "49_recursive_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Recursive modules use module rec ... and ...:
   module rec A : sig ... end = struct ... B.x ... end
@@ -1745,9 +2206,12 @@ Recursive modules use module rec ... and ...:
 This allows mutually recursive definitions across module boundaries.
 """
 
-[[exercises]]
-name = "recursive_modules2"
-dir = "49_recursive_modules"
+[[exercise]]
+id = "recursive_modules2"
+path = "49_recursive_modules/recursive_modules2.ml"
+topic = "49_recursive_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Recursive modules can also define mutually recursive types.
 Pattern:
@@ -1756,9 +2220,12 @@ Pattern:
 Call across modules to compute combined recursive functions.
 """
 
-[[exercises]]
-name = "oo_inheritance1"
-dir = "50_oo_inheritance"
+[[exercise]]
+id = "oo_inheritance1"
+path = "50_oo_inheritance/oo_inheritance1.ml"
+topic = "50_oo_inheritance"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Virtual classes define required methods:
   class virtual shape = object
@@ -1768,9 +2235,12 @@ Subclasses implement virtual methods and can inherit from concrete classes:
   class square s = object inherit rectangle s s end
 """
 
-[[exercises]]
-name = "oo_inheritance2"
-dir = "50_oo_inheritance"
+[[exercise]]
+id = "oo_inheritance2"
+path = "50_oo_inheritance/oo_inheritance2.ml"
+topic = "50_oo_inheritance"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Override methods with `method!` and call parent implementation via `super`:
   class child = object
@@ -1780,9 +2250,12 @@ Override methods with `method!` and call parent implementation via `super`:
 Useful for adding behavior (fees, logging, checks) while reusing base logic.
 """
 
-[[exercises]]
-name = "ffi_interop1"
-dir = "51_ffi_interop"
+[[exercise]]
+id = "ffi_interop1"
+path = "51_ffi_interop/ffi_interop1.ml"
+topic = "51_ffi_interop"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Interop usually requires explicit byte layouts.
 For a 16-bit big-endian integer:
@@ -1792,9 +2265,12 @@ Reconstruct with:
   (high lsl 8) lor low
 """
 
-[[exercises]]
-name = "ffi_interop2"
-dir = "51_ffi_interop"
+[[exercise]]
+id = "ffi_interop2"
+path = "51_ffi_interop/ffi_interop2.ml"
+topic = "51_ffi_interop"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 C strings are null-terminated byte arrays.
 To encode:
@@ -1806,9 +2282,12 @@ To decode:
 - convert prefix bytes to an OCaml string.
 """
 
-[[exercises]]
-name = "parsing_rewriting1"
-dir = "52_parsing_rewriting"
+[[exercise]]
+id = "parsing_rewriting1"
+path = "52_parsing_rewriting/parsing_rewriting1.ml"
+topic = "52_parsing_rewriting"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 A tiny parser pipeline has three phases:
 1) tokenize (string -> token list)
@@ -1818,9 +2297,12 @@ Constant folding pattern:
   Add (Int x, Int y) -> Int (x + y)
 """
 
-[[exercises]]
-name = "parsing_rewriting2"
-dir = "52_parsing_rewriting"
+[[exercise]]
+id = "parsing_rewriting2"
+path = "52_parsing_rewriting/parsing_rewriting2.ml"
+topic = "52_parsing_rewriting"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 A rewrite pass should recurse first, then apply local rules.
 Useful simplifications for addition:
@@ -1830,9 +2312,12 @@ Useful simplifications for addition:
 When no rule matches, rebuild the node with simplified children.
 """
 
-[[exercises]]
-name = "value_restriction1"
-dir = "53_value_restriction"
+[[exercise]]
+id = "value_restriction1"
+path = "53_value_restriction/value_restriction1.ml"
+topic = "53_value_restriction"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Partially applied functions can hit value restriction and become weakly polymorphic.
 Eta-expand to regain polymorphism:
@@ -1840,116 +2325,155 @@ Eta-expand to regain polymorphism:
 Your result should work on both int lists and string lists.
 """
 
-[[exercises]]
-name = "value_restriction2"
-dir = "53_value_restriction"
+[[exercise]]
+id = "value_restriction2"
+path = "53_value_restriction/value_restriction2.ml"
+topic = "53_value_restriction"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use a polymorphic record field for a truly generic value:
   type poly = { run : 'a. 'a -> 'a }
 Then build the identity implementation.
 """
 
-[[exercises]]
-name = "value_restriction3"
-dir = "53_value_restriction"
+[[exercise]]
+id = "value_restriction3"
+path = "53_value_restriction/value_restriction3.ml"
+topic = "53_value_restriction"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Mutable references can infer weak type variables at top level.
 Wrap creation in a function so each call gets a fresh polymorphic instance:
   let make () = ref None
 """
 
-[[exercises]]
-name = "variance1"
-dir = "54_variance_private_types"
+[[exercise]]
+id = "variance1"
+path = "54_variance_private_types/variance1.ml"
+topic = "54_variance_private_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Read-only containers are usually covariant.
 Use `+'a` when values only flow out of the type.
 Then widen from a specific polymorphic variant to a broader one.
 """
 
-[[exercises]]
-name = "variance2"
-dir = "54_variance_private_types"
+[[exercise]]
+id = "variance2"
+path = "54_variance_private_types/variance2.ml"
+topic = "54_variance_private_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Consumer/sink types are usually contravariant.
 Use `-'a` when values only flow into the type.
 This allows using a broader consumer where a narrower one is required.
 """
 
-[[exercises]]
-name = "private_types1"
-dir = "54_variance_private_types"
+[[exercise]]
+id = "private_types1"
+path = "54_variance_private_types/private_types1.ml"
+topic = "54_variance_private_types"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Expose a type as private in the signature:
   type t = private int
 Create values through a smart constructor (`make`) that enforces invariants.
 """
 
-[[exercises]]
-name = "advanced_modules1"
-dir = "55_advanced_modules"
+[[exercise]]
+id = "advanced_modules1"
+path = "55_advanced_modules/advanced_modules1.ml"
+topic = "55_advanced_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 `module type of` captures a module's inferred interface:
   module type S = module type of M
 Use it to avoid repeating signatures.
 """
 
-[[exercises]]
-name = "advanced_modules2"
-dir = "55_advanced_modules"
+[[exercise]]
+id = "advanced_modules2"
+path = "55_advanced_modules/advanced_modules2.ml"
+topic = "55_advanced_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Use a sharing constraint to tie abstract types together:
   (B : S with type t = A.t)
 This forces two modules to agree on the same `t`.
 """
 
-[[exercises]]
-name = "advanced_modules3"
-dir = "55_advanced_modules"
+[[exercise]]
+id = "advanced_modules3"
+path = "55_advanced_modules/advanced_modules3.ml"
+topic = "55_advanced_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Destructive substitution (`:=`) specializes and removes an abstract type:
   module type Int_show = Show with type t := int
 Use it when you want a concrete type in the derived signature.
 """
 
-[[exercises]]
-name = "advanced_modules4"
-dir = "55_advanced_modules"
+[[exercise]]
+id = "advanced_modules4"
+path = "55_advanced_modules/advanced_modules4.ml"
+topic = "55_advanced_modules"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 First-class modules can be stored in lists:
   (module M : S)
 Unpack each module in a fold and aggregate its values.
 """
 
-[[exercises]]
-name = "ppx_dune1"
-dir = "56_ppx_dune"
+[[exercise]]
+id = "ppx_dune1"
+path = "56_ppx_dune/ppx_dune1.ml"
+topic = "56_ppx_dune"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This scaffold imitates what a deriving PPX often generates.
 Write a deterministic pretty-printer for the record shape requested by asserts.
 """
 
-[[exercises]]
-name = "ppx_dune2"
-dir = "56_ppx_dune"
+[[exercise]]
+id = "ppx_dune2"
+path = "56_ppx_dune/ppx_dune2.ml"
+topic = "56_ppx_dune"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Model the idea behind inline tests with a tiny helper:
 - pass means no exception
 - fail means raise with a useful message
 """
 
-[[exercises]]
-name = "ppx_dune3"
-dir = "56_ppx_dune"
+[[exercise]]
+id = "ppx_dune3"
+path = "56_ppx_dune/ppx_dune3.ml"
+topic = "56_ppx_dune"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Build a Dune stanza string that includes preprocessors:
   (library (name ...) (preprocess (pps ...)))
 Use `String.concat` to join PPX names.
 """
 
-[[exercises]]
-name = "ocamllex_menhir1"
-dir = "57_ocamllex_menhir"
+[[exercise]]
+id = "ocamllex_menhir1"
+path = "57_ocamllex_menhir/ocamllex_menhir1.ml"
+topic = "57_ocamllex_menhir"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Tokenizer step: map lexemes to tokens.
 For this scaffold:
@@ -1959,9 +2483,12 @@ For this scaffold:
 - decimal text -> INT (int_of_string ...)
 """
 
-[[exercises]]
-name = "ocamllex_menhir2"
-dir = "57_ocamllex_menhir"
+[[exercise]]
+id = "ocamllex_menhir2"
+path = "57_ocamllex_menhir/ocamllex_menhir2.ml"
+topic = "57_ocamllex_menhir"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Parser step: build precedence with recursive descent:
 - factor: ints and parenthesized expressions
@@ -1970,17 +2497,23 @@ Parser step: build precedence with recursive descent:
 `*` should bind tighter than `+`.
 """
 
-[[exercises]]
-name = "ocamllex_menhir3"
-dir = "57_ocamllex_menhir"
+[[exercise]]
+id = "ocamllex_menhir3"
+path = "57_ocamllex_menhir/ocamllex_menhir3.ml"
+topic = "57_ocamllex_menhir"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Return parse errors as `('a, string) result` rather than exceptions.
 Keep success and failure paths explicit in pattern matches.
 """
 
-[[exercises]]
-name = "ocamllex_menhir4"
-dir = "57_ocamllex_menhir"
+[[exercise]]
+id = "ocamllex_menhir4"
+path = "57_ocamllex_menhir/ocamllex_menhir4.ml"
+topic = "57_ocamllex_menhir"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Compose a tiny pipeline:
 1) tokenize input
@@ -1990,27 +2523,36 @@ Compose a tiny pipeline:
 Use `|>` for readable left-to-right flow.
 """
 
-[[exercises]]
-name = "async1"
-dir = "58_async"
+[[exercise]]
+id = "async1"
+path = "58_async/async1.ml"
+topic = "58_async"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Callback chaining pattern:
   fetch id (fun value -> next value)
 Propagate `Error` unchanged, and combine successful steps into one result.
 """
 
-[[exercises]]
-name = "async2"
-dir = "58_async"
+[[exercise]]
+id = "async2"
+path = "58_async/async2.ml"
+topic = "58_async"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 For task monads:
   bind t f () = let x = t () in f x ()
 On errors, stop early and propagate the same error value.
 """
 
-[[exercises]]
-name = "async3"
-dir = "58_async"
+[[exercise]]
+id = "async3"
+path = "58_async/async3.ml"
+topic = "58_async"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Cancellation gates execution:
 - cancelled token -> Error "cancelled"
@@ -2018,18 +2560,24 @@ Cancellation gates execution:
 Thread the token through bind to short-circuit safely.
 """
 
-[[exercises]]
-name = "ffi_stubs_ctypes1"
-dir = "59_ffi_stubs_ctypes"
+[[exercise]]
+id = "ffi_stubs_ctypes1"
+path = "59_ffi_stubs_ctypes/ffi_stubs_ctypes1.ml"
+topic = "59_ffi_stubs_ctypes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Decode a 32-bit little-endian integer from bytes:
   b0 + (b1 lsl 8) + (b2 lsl 16) + (b3 lsl 24)
 Use `Char.code` for each byte.
 """
 
-[[exercises]]
-name = "ffi_stubs_ctypes2"
-dir = "59_ffi_stubs_ctypes"
+[[exercise]]
+id = "ffi_stubs_ctypes2"
+path = "59_ffi_stubs_ctypes/ffi_stubs_ctypes2.ml"
+topic = "59_ffi_stubs_ctypes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 For C strings:
 - scan bytes until '\\000'
@@ -2037,58 +2585,79 @@ For C strings:
 Add a `max_len` guard and return an Error when no terminator is found.
 """
 
-[[exercises]]
-name = "ffi_stubs_ctypes3"
-dir = "59_ffi_stubs_ctypes"
+[[exercise]]
+id = "ffi_stubs_ctypes3"
+path = "59_ffi_stubs_ctypes/ffi_stubs_ctypes3.ml"
+topic = "59_ffi_stubs_ctypes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Decode a packet layout:
 - tag (u16), payload length (u16), payload bytes, checksum (u8)
 Validate total length and checksum before returning `Ok`.
 """
 
-[[exercises]]
-name = "testing_qcheck1"
-dir = "60_testing_qcheck"
+[[exercise]]
+id = "testing_qcheck1"
+path = "60_testing_qcheck/testing_qcheck1.ml"
+topic = "60_testing_qcheck"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Table-driven tests apply the same function across many examples.
 Return descriptive failure messages that include case names and values.
 """
 
-[[exercises]]
-name = "testing_qcheck2"
-dir = "60_testing_qcheck"
+[[exercise]]
+id = "testing_qcheck2"
+path = "60_testing_qcheck/testing_qcheck2.ml"
+topic = "60_testing_qcheck"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Implement a deterministic property runner over generated trials.
 Stop at first failing sample and return its trial index and value.
 """
 
-[[exercises]]
-name = "testing_qcheck3"
-dir = "60_testing_qcheck"
+[[exercise]]
+id = "testing_qcheck3"
+path = "60_testing_qcheck/testing_qcheck3.ml"
+topic = "60_testing_qcheck"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 After finding a failing input, repeatedly shrink it while it still fails.
 Return the minimal counterexample found.
 """
 
-[[exercises]]
-name = "performance_gc1"
-dir = "61_performance_gc"
+[[exercise]]
+id = "performance_gc1"
+path = "61_performance_gc/performance_gc1.ml"
+topic = "61_performance_gc"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Implement tail-recursive `map` with an accumulator and final `List.rev`.
 This avoids stack growth on long inputs.
 """
 
-[[exercises]]
-name = "performance_gc2"
-dir = "61_performance_gc"
+[[exercise]]
+id = "performance_gc2"
+path = "61_performance_gc/performance_gc2.ml"
+topic = "61_performance_gc"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Avoid repeated `^` concatenation for many strings.
 Use `Buffer` to build output incrementally.
 """
 
-[[exercises]]
-name = "performance_gc3"
-dir = "61_performance_gc"
+[[exercise]]
+id = "performance_gc3"
+path = "61_performance_gc/performance_gc3.ml"
+topic = "61_performance_gc"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 Collect lightweight performance metrics:
 - CPU time with `Sys.time`
@@ -2096,9 +2665,12 @@ Collect lightweight performance metrics:
 Return them in a metrics record.
 """
 
-[[exercises]]
-name = "quiz8"
-dir = "quizzes"
+[[exercise]]
+id = "quiz8"
+path = "quizzes/quiz8.ml"
+topic = "quizzes"
+difficulty = "beginner"
+check = "compile_and_run"
 hint = """
 This quiz covers the new advanced tracks from topics 53-61.
 Review:

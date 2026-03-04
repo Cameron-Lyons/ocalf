@@ -1,16 +1,18 @@
-type t = { exercises_dir : string; solutions_dir : string; info_path : string }
+type t = {
+  root : string;
+  exercises_dir : string;
+  solutions_dir : string;
+  manifest_path : string;
+  state_path : string;
+  workspace_fingerprint : string;
+}
 
-let default =
-  {
-    exercises_dir = "exercises";
-    solutions_dir = "solutions";
-    info_path = "exercises/info.toml";
-  }
+let manifest_rel_path = Filename.concat "exercises" "info.toml"
 
 let find_project_root () =
   let rec find dir =
-    let info_path = Filename.concat dir "exercises/info.toml" in
-    if Sys.file_exists info_path then Some dir
+    let manifest_path = Filename.concat dir manifest_rel_path in
+    if Sys.file_exists manifest_path then Some dir
     else
       let parent = Filename.dirname dir in
       if parent = dir then None else find parent
@@ -19,15 +21,24 @@ let find_project_root () =
 
 let load () =
   match find_project_root () with
+  | None ->
+      Error
+        (Printf.sprintf "could not locate %s from %s" manifest_rel_path
+           (Sys.getcwd ()))
   | Some root ->
-      {
-        exercises_dir = Filename.concat root "exercises";
-        solutions_dir = Filename.concat root "solutions";
-        info_path = Filename.concat root "exercises/info.toml";
-      }
-  | None -> default
+      let manifest_path = Filename.concat root manifest_rel_path in
+      if not (Sys.file_exists manifest_path) then
+        Error (Printf.sprintf "manifest file missing: %s" manifest_path)
+      else
+        let workspace_fingerprint = Digest.to_hex (Digest.string root) in
+        Ok
+          {
+            root;
+            exercises_dir = Filename.concat root "exercises";
+            solutions_dir = Filename.concat root "solutions";
+            manifest_path;
+            state_path = Filename.concat root ".ocalf-state.toml";
+            workspace_fingerprint;
+          }
 
-let load_exercises config =
-  if Sys.file_exists config.info_path then
-    Exercise.parse_info_toml config.info_path
-  else []
+let load_exercises config = Exercise.parse_info_toml config.manifest_path

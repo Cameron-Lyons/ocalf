@@ -45,17 +45,24 @@ dune exec ocalf
 # List all exercises
 dune exec ocalf -- list
 
-# Verify the current exercise
-dune exec ocalf -- verify
+# Verify the next incomplete exercise (explicit target)
+dune exec ocalf -- verify next
 
 # Verify a specific exercise
 dune exec ocalf -- verify intro1
 
-# Get a hint for the current exercise
-dune exec ocalf -- hint
+# Get a hint for the next incomplete exercise
+dune exec ocalf -- hint next
+
+# Get machine-readable output
+dune exec ocalf -- list --json
+
+# Compact JSON summary (default mode) or full exercise payload
+dune exec ocalf -- list --json --json-mode summary
+dune exec ocalf -- list --json --json-mode full
 
 # Watch mode - auto-verify on file changes
-dune exec ocalf -- watch
+dune exec ocalf -- watch next
 
 # Reset an exercise to its original state
 dune exec ocalf -- reset intro1
@@ -63,11 +70,22 @@ dune exec ocalf -- reset intro1
 
 ## How It Works
 
-1. Each exercise is an OCaml file in the `exercises/` directory
-2. Exercises contain `(* TODO: ... *)` comments explaining what to fix
-3. Edit the file to solve the exercise
-4. Run `ocalf verify` to check your solution
-5. Once verified, move on to the next exercise
+1. The exercise manifest (`exercises/info.toml`) uses `schema_version = 3`
+2. Each exercise entry declares `id`, `path`, `topic`, `difficulty`, `hint`, and `check`
+3. Edit an exercise file in `exercises/`
+4. Run `ocalf verify <id|next>` to run that exercise's declared check contract
+5. Progress is stored in `.ocalf-state.toml` with attempts and last result metadata
+
+### Check contracts
+
+`check` supports:
+- `compile_and_run` (default OCaml compile + execute behavior)
+- `command` with `check_command = ["prog", "arg1", ...]`
+
+`check_command` placeholders:
+- `{project_root}` absolute project root
+- `{exercise_id}` exercise id
+- `{exercise_path}` absolute path to the exercise file
 
 ## Topics
 
