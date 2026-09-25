@@ -24,5 +24,4 @@
   dune
   toml
   (cmdliner (>= 1.1.0))
-  (inotify (and :with-test (>= 2.0)))
   (fileutils (>= 0.6.0))))
